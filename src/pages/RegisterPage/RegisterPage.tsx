@@ -1,6 +1,10 @@
+import RegisterForm from "../../components/ui/RegisterForm/RegisterForm"
+
 function RegisterPage(){
     return(
-        <>register</>
+        <>
+            <RegisterForm/>
+        </>
     )
 }
 
