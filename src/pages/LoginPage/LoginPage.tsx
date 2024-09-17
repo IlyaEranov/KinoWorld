@@ -1,7 +1,9 @@
+import LoginForm from "../../components/ui/LoginForm/LoginForm"
+
 function LoginPage(){
     return(
         <>
-            login
+            <LoginForm/>
         </>
     )
 }
