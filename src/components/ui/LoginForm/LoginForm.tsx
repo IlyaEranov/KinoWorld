@@ -1,18 +1,26 @@
-import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux"
-import { loginUser } from "../../../store/reducers/UserSlice"
+import { loginUser, resetAuthError } from "../../../store/reducers/UserSlice"
+import { useForm } from "../../../hooks/useForm"
+
+const initialData = {
+    email: "",
+    password: ""
+}
 
 function LoginForm() {
 
     const dispatch = useAppDispatch()
     const {authError} = useAppSelector(state => state.UserReducer)
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const {data, setData, validate, validateErrors} = useForm(initialData)
 
     const handlerSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        dispatch(loginUser({email, password}))
+        if(validate()){
+            dispatch(loginUser(data))
+        } else {
+            setData(initialData)
+        }
     }
 
     return (
@@ -20,14 +28,28 @@ function LoginForm() {
             <form>
                 <input
                     placeholder="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    value={data.email}
+                    onChange={e => {
+                        setData({
+                            ...data,
+                            email: e.target.value
+                        })
+                        dispatch(resetAuthError())
+                    }}
                 />
+                {validateErrors["email"] && <div>{validateErrors["email"]}</div>}
                 <input
                     placeholder="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    value={data.password}
+                    onChange={e => {
+                        setData({
+                            ...data,
+                            password: e.target.value
+                        })
+                        dispatch(resetAuthError())
+                    }}
                 />
+                {validateErrors["password"] && <div>{validateErrors["password"]}</div>}
                 <button onClick={handlerSubmit}>Войти</button>
             </form>
             {authError && <div>{authError}</div>}

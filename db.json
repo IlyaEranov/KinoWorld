@@ -1,22 +1,16 @@
 {
   "users": [
     {
-      "id": "53b0",
-      "email": "asdf",
+      "id": "123",
       "name": "asdf",
-      "password": "asdf"
+      "email": "a@a.a",
+      "password": "123123123"
     },
     {
-      "id": "d421",
-      "email": "asdgasg",
-      "name": "asgdas",
-      "password": "agsgdg"
-    },
-    {
-      "id": "52fa",
-      "email": "asdfa",
-      "name": "ahaha",
-      "password": "asdga"
+      "id": "65c8",
+      "email": "a@a.aa",
+      "name": "asdfasdf",
+      "password": "123123123a"
     }
   ]
 }
