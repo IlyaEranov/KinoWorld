@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+
+.button{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 24px 16px 24px;
+    border-radius: 6px;
+    background-color: $color-main;
+    transition: 0.4s;
+    cursor: pointer;
+    &.inverted{
+        background-color: unset;
+        border: 1px solid $color-main;
+    }
+    &.inverted:hover{
+        background-color: $color-hover;
+        border-color: $color-hover;
+    }
+    &.dark{
+        background-color: $color-neutral90;
+        border: 1px solid $color-neutral80;
+    }
+    &.dark:hover{
+        background-color: $color-neutral80;
+    }
+}
+
+.button:hover{
+    background-color: $color-hover;
+}
