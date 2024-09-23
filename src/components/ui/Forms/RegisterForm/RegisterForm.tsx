@@ -5,8 +5,8 @@ import s from "../AuthForms.module.scss"
 import style from "./RegisterForm.module.scss"
 import { Link } from "react-router-dom"
 import InputField from "../../Fields/InputField/InputField"
-import Button from "../../Button/Button"
-import icon from "../../../../assets/icons/google.svg"
+import Button from "../../Buttons/Button/Button"
+import icon from "../../../../assets/icons/media/google.svg"
 
 const initialData = {
     email: "",

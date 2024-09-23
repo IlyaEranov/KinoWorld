@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.nav{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-family: "medium";
+    font-size: 20px;
+}
+
+.a{
+    padding: 8px 16px 8px 16px;
+    text-decoration: none;
+    color: $color-neutral60;
+    transition: 0.4s;
+    border-radius: 4px;
+}
+
+.a:hover{
+    background-color: $color-neutral90;
+    color: #fff;
+}

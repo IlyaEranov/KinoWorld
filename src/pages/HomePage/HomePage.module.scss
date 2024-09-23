@@ -1,0 +1,51 @@
+@import "../../styles/variables";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 120px 200px 120px 200px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+.container__image{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    margin: 150px 100px 0 0;
+}
+
+.image{
+    max-width: 1200px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.h1{
+    font-family: "bold";
+    font-size: 48px;
+}
+
+.p{
+    font-family: "medium";
+    font-size: 18px;
+    color: $color-neutral60;
+}
+
+.buttons{
+    display: flex;
+    gap: 24px;
+}
