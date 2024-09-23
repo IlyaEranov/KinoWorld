@@ -1,10 +1,16 @@
-import LoginForm from "../../components/ui/LoginForm/LoginForm"
+import LoginForm from "../../components/ui/Forms/LoginForm/LoginForm"
+import s from "./LoginPage.module.scss"
+import loginImage from "../../assets/images/loginImage.jpg"
 
 function LoginPage(){
     return(
         <>
-            <LoginForm/>
+            <div className={s.container}>
+                <LoginForm/>
+            </div>
+            <img className={s.image} src={loginImage}/>
         </>
+        
     )
 }
 

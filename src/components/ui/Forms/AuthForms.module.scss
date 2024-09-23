@@ -1,0 +1,51 @@
+@import "../../../styles/variables";
+
+.logo{
+    font-style: italic;
+    font-family: "bold";
+    font-size: 32px;
+}
+
+.title{
+    font-family: "bold";
+    font-size: 40px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.p{
+    color: $color-neutral50;
+    font-size: 16px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.icon{
+    height: 15px;
+    width: 15px;
+}
+
+.description{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 18px;
+}
+
+.a{
+    text-decoration: none;
+    color: $color-main;
+    transition: 0.4s;
+}
+
+.a:hover{
+    color: $color-hover;
+}

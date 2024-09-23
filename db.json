@@ -1,16 +1,5 @@
 {
   "users": [
-    {
-      "id": "123",
-      "name": "asdf",
-      "email": "a@a.a",
-      "password": "123123123"
-    },
-    {
-      "id": "65c8",
-      "email": "a@a.aa",
-      "name": "asdfasdf",
-      "password": "123123123a"
-    }
+    
   ]
 }
