@@ -1,0 +1,19 @@
+$color-main: #F14141; 
+$color-hover: #C53535;
+
+$color-neutral50: #C2C2C2;
+$color-neutral70: #606060;
+$color-neutral80: #383838;
+$color-neutral90: #242323;
+$color-neutral100: #101010;
+
+//fonts
+@font-face {
+    font-family: "medium";
+    src: url("../assets/fonts/golostext_medium.ttf");
+}
+
+@font-face {
+    font-family: "bold";
+    src: url("../assets/fonts/golostext_bold.ttf");
+}
