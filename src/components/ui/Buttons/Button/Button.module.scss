@@ -11,9 +11,9 @@
     background-color: $color-main;
     transition: 0.4s;
     cursor: pointer;
+    border: 1px solid $color-main;
     &.inverted{
         background-color: unset;
-        border: 1px solid $color-main;
     }
     &.inverted:hover{
         background-color: $color-main;
@@ -29,4 +29,5 @@
 
 .button:hover{
     background-color: $color-hover;
+    border-color: $color-hover;
 }

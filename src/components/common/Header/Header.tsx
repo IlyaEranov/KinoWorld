@@ -11,8 +11,8 @@ function Header(){
             <NavBar/>
             <div className={s.buttons}>
                 <SearchButton/>
-                <Button>Регистрация</Button>
-                <Button inverted>Вход</Button>
+                <Link className={s.a} to={"/register"}><Button>Регистрация</Button></Link>
+                <Link className={s.a} to={"/login"}><Button inverted>Вход</Button></Link>
             </div>
         </header>
     )
