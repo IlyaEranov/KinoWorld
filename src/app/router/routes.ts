@@ -1,8 +1,8 @@
-import { ComponentType } from "react"
-import HomePage from "../../pages/HomePage/HomePage"
-import LoginPage from "../../pages/LoginPage/LoginPage"
-import RegisterPage from "../../pages/RegisterPage/RegisterPage"
-import ProfilePage from "../../pages/ProfilePage/ProfilePage"
+import React, { ComponentType } from "react"
+const HomePage = React.lazy(() => import("../../pages/HomePage/HomePage"))
+const LoginPage = React.lazy(() => import("../../pages/LoginPage/LoginPage"))
+const RegisterPage = React.lazy(() => import("../../pages/RegisterPage/RegisterPage"))
+const ProfilePage = React.lazy(() => import("../../pages/ProfilePage/ProfilePage"))
 
 export interface RouteType{
     index?: boolean
