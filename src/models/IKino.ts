@@ -4,6 +4,7 @@ interface docs{
     type: string
     year: number
     description: string
+    shortDescription: string
     rating: {
         kp: number
     }

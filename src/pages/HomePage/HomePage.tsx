@@ -1,10 +1,12 @@
 import Layout from "../../components/common/Layout/Layout"
-import HomePreview from "../../components/modules/HomePreview/HomePreview"
+import CategoriesSection from "../../components/modules/CategoriesSection/CategoriesSection"
+import HeroSection from "../../components/modules/HeroSection/HeroSection"
 
 function HomePage(){
     return(
         <Layout>
-            <HomePreview/>
+            <HeroSection/>
+            <CategoriesSection/>
         </Layout>
     )
 }
