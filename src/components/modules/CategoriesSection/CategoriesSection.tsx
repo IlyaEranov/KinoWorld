@@ -34,7 +34,7 @@ function CategoriesSection(){
 
                         </div>
                         <div className={s.chunks}>
-                            {entities.docs.map(e => <div className={s.container__enttities}>
+                            {entities.docs.map((e, i) => <div key={i} className={s.container__enttities}>
                                 <img className={s.image} src={e.poster.previewUrl}/>
                                 <div className={s.description}>
                                     <h2 className={s.h2}>{e.name}</h2>

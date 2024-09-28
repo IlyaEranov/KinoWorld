@@ -42,8 +42,9 @@ const HeroSection = () => {
                 </div>
                 <div className={s.list__indicator}>
                     {entities.docs.map((_, i) => i == current ?
-                        <div className={`${s.indicator} ${s.active}`}></div> :
+                        <div key={i} className={`${s.indicator} ${s.active}`}></div> :
                         <div
+                            key={i}
                             className={s.indicator}
                             onClick={(e: React.MouseEvent<HTMLDivElement>) => {
                                 e.preventDefault()
