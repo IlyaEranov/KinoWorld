@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux"
 import s from "./HeroSection.module.scss"
@@ -8,7 +8,7 @@ import Button from "../../ui/Buttons/Button/Button"
 import play from "../../../assets/icons/play-circle.svg"
 import AppLoader from "../../ui/HOC/AppLoader/AppLoader"
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
 
     const limit = 5
     const notNullField = "top10"
@@ -21,8 +21,6 @@ const HeroSection = () => {
     }, [])
 
     const { current, setCurrent } = usePagiantion()
-
-
 
     return (
         <div className={s.container}>
@@ -60,6 +58,6 @@ const HeroSection = () => {
             {error && <div className={s.error}>{error}</div>}
         </div>
     )
-}
+})
 
-export default React.memo(HeroSection)
+export default HeroSection
