@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux"
 import s from "./CategoriesSection.module.scss"
-import ComponentLoader from "../../ui/HOC/ComponentLoader/ComponentLoader"
 import { getKino } from "../../../store/reducers/KinoSlice"
 import Button from "../../ui/Buttons/Button/Button"
 import play from "../../../assets/icons/play-circle.svg"
+import AppLoader from "../../ui/HOC/AppLoader/AppLoader"
 
 function CategoriesSection(){
 
@@ -21,11 +21,7 @@ function CategoriesSection(){
 
     return(
         <div className={s.container}>
-            {isLoading && <>
-                <div className={s.content}>
-                    <ComponentLoader/>
-                </div>
-            </>}
+            {isLoading && <AppLoader/>}
             {entities && <>
                 <div className={s.content}>
                     <h1 className={s.h1}>Ознакомьтесь с нашим широким выбором категорий и жанров фильмов</h1>

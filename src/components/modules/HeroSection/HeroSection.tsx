@@ -6,7 +6,7 @@ import { getKino } from "../../../store/reducers/KinoSlice"
 import { usePagiantion } from "../../../hooks/usePagination"
 import Button from "../../ui/Buttons/Button/Button"
 import play from "../../../assets/icons/play-circle.svg"
-import ComponentLoader from "../../ui/HOC/ComponentLoader/ComponentLoader"
+import AppLoader from "../../ui/HOC/AppLoader/AppLoader"
 
 const HeroSection = () => {
 
@@ -22,13 +22,11 @@ const HeroSection = () => {
 
     const { current, setCurrent } = usePagiantion()
 
+
+
     return (
         <div className={s.container}>
-            {isLoading && <>
-                <div className={s.content}>
-                    <ComponentLoader />
-                </div>
-            </>}
+            {isLoading && <AppLoader/>}
             {entities && <>
                 <div className={s.content}>
                     <div className={s.description}>

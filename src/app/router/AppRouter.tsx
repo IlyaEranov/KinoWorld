@@ -1,8 +1,9 @@
+import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./routes";
-import Page404 from "../../pages/Page404/Page404";
 import { useAppSelector } from "../../hooks/redux";
 import { useEffect } from "react";
+const Page404 = React.lazy(() => import("../../pages/Page404/Page404"))
 
 function AppRouter(){
 
