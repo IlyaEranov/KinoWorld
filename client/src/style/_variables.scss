@@ -1,0 +1,25 @@
+
+//fonts
+@font-face {
+    font-family: "bold";
+    src: url("../assets/fonts/golostext_bold.woff2");
+}
+
+@font-face {
+    font-family: "medium";
+    src: url("../assets/fonts/golostext_medium.woff2");
+}
+
+//colors
+$color-neutral100: #101010;
+$color-neutral90: #242323;
+$color-neutral80: #383838;
+$color-neutral70: #606060;
+$color-neutral60: #878787;
+$color-neutral50: #C2C2C2;
+$color-neutral40: #D6D6D6;
+$color-neutral30: #EDEDED;
+
+$color-main: #F14141;
+$color-hover: #C53535;
+$color-focus: #802A2A;
