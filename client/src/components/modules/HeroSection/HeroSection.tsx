@@ -2,10 +2,11 @@ import s from "./HeroSection.module.scss"
 import { useAppSelector } from "../../../hooks/redux"
 import Button from "../../ui/Button/Button"
 import { FaCirclePlay } from "react-icons/fa6"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
-function HeroSection() {
+const HeroSection = React.memo(() => {
 
+    const timeout = useRef<number>()
     const [current, setCurrent] = useState(0)
     const [items, setItems] = useState<HTMLImageElement[]>([])
 
@@ -23,15 +24,14 @@ function HeroSection() {
         }
     }, [])
 
-    useEffect(() => {
-        setTimeout(() => {
-            if (current == 4) {
-                setCurrent(0)
-            } else {
-                setCurrent(current + 1)
-            }
-        }, 3000)
-    }, [current])
+    timeout.current = setTimeout(() => {
+        if (current == 4) {
+            setCurrent(0)
+        } else {
+            setCurrent(current + 1)
+        }
+    }, 10000)
+
 
     return (
         <div className={s.container}>
@@ -52,9 +52,9 @@ function HeroSection() {
                         <div
                             key={i}
                             className={s.indicator}
-                            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                                e.preventDefault()
+                            onClick={() => {
                                 setCurrent(i)
+                                clearTimeout(timeout.current)
                             }}
                         ></div>
                     )}
@@ -68,6 +68,6 @@ function HeroSection() {
             {error && <div className={s.error}>{error}</div>}
         </div>
     )
-}
+})
 
-export default React.memo(HeroSection)
+export default HeroSection

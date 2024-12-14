@@ -57,12 +57,17 @@
 .h1 {
     font-family: "bold";
     font-size: 48px;
+    height: 116px;
 }
 
 .p {
     font-family: "medium";
     font-size: 18px;
     color: $color-neutral40;
+    height: 218px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
 }
 
 .buttons {
