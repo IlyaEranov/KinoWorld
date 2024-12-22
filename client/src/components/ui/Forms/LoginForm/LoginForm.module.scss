@@ -1,0 +1,23 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    gap: 32px;
+    height: 100vh;
+    max-width: 500px;
+    padding: 40px;
+}
+
+.section{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+@media screen and (max-width: 430px) {
+    .content{
+        transform: scale(70%);
+    }
+}

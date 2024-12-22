@@ -1,6 +1,15 @@
+import s from "./RegisterPage.module.scss"
+import RegisterForm from "../../ui/Forms/RegisterForm/RegisterForm"
+import registerImage from "../../../assets/images/registerImage.jpg"
+
 function RegisterPage(){
     return(
-        <>register</>
+        <div className={s.container}>
+            <div className={s.container__form}>
+                <RegisterForm/>
+            </div>
+            <img src={registerImage} className={s.image}/>
+        </div>
     )
 }
 

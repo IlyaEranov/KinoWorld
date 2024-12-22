@@ -5,6 +5,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     line-height: 24px;
     gap: 8px;
     transition: 0.5s;
@@ -16,6 +17,14 @@
     &.inverted{
         background-color: $color-neutral100;
         transition: 0.25s;
+    }
+    &.dark{
+        background-color: $color-neutral90; 
+        border: 1px solid $color-neutral80;
+    }
+    &.dark:hover{
+        background-color: $color-neutral80;
+        border: 1px solid $color-neutral80;
     }
 }
 

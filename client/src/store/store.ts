@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import KinoReducer from "./reducers/KinoSlice"
+import UserReducer from "./reducers/UserSlice"
 
 const rootReducer = combineReducers({
-    KinoReducer
+    KinoReducer,
+    UserReducer
 })
 
 export const setupStore = () => {

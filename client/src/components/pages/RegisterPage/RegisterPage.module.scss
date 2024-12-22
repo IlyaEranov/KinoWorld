@@ -1,0 +1,32 @@
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.container__form{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}   
+
+.image{
+    float: right;
+    width: 60%;
+}
+
+@media screen and (max-width: 1300px) {
+    .image{
+        display: none;
+    }
+    .container__form{
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .container__form{
+        transform: scale(70%);
+    }
+}

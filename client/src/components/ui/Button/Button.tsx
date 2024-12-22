@@ -3,7 +3,7 @@ import s from "./Button.module.scss"
 
 interface ButtonProps{
     children: ReactNode
-    onClick?: () => void
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
     buttonType?: string
 }
 
