@@ -4,17 +4,46 @@ import { Link } from "react-router-dom"
 import Button from "../../ui/Button/Button"
 import { FiSearch } from "react-icons/fi"
 
+
 function Header(){
     return(
         <header>
             <div className={s.logo}>
-                <span>КИНОМИР</span>
+                <Link to={"/"}>КИНОМИР</Link>
             </div>
             <nav>
-                <NavLink to={"/"} className={s.a}>Главная</NavLink>
-                <NavLink to={"/"} className={s.a}>Фильмы</NavLink>
-                <NavLink to={"/"} className={s.a}>Сериалы</NavLink>
-                <NavLink to={"/"} className={s.a}>О нас</NavLink>
+                <NavLink 
+                    to={"/"} 
+                    className={({isActive}) => [
+                        isActive ? s.active : "",
+                    ].join(" ")}
+                >
+                    Главная
+                </NavLink>
+                <NavLink
+                    to={"/films"}
+                    className={({isActive}) => [
+                        isActive ? s.active : "",
+                    ].join(" ")}
+                >
+                    Фильмы
+                </NavLink>
+                <NavLink 
+                    to={"/series"}
+                    className={({isActive}) => [
+                        isActive ? s.active : "",
+                    ].join(" ")}
+                >
+                    Сериалы
+                </NavLink>
+                <NavLink 
+                    to={"/about"} 
+                    className={({isActive}) => [
+                        isActive ? s.active : "",
+                    ].join(" ")}
+                >
+                    О нас
+                </NavLink>
             </nav>
             <div className={s.buttons}>
                 <div className={s.search__icon}>

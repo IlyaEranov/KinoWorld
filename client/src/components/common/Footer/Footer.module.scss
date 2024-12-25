@@ -1,0 +1,127 @@
+@import "../../../style/variables";
+
+.cta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+    height: 528px;
+}
+
+.content_cta{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+    max-width: 900px;
+}
+
+.h1{
+    font-size: 48px;
+    font-family: "bold";
+}
+
+.p{
+    font-size: 24px;
+}
+
+.button_container{
+    position: relative;
+    z-index: 1;
+}
+
+.image{
+    position: absolute;
+    height: 528px;
+    width: 100%;
+    z-index: 0;
+}
+
+footer{
+    padding: 80px 200px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.content{
+    display: flex;
+    gap: 24px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 468px;
+}
+
+.logo{
+    font-size: 32px;
+    font-family: "bold";
+}
+
+.p{
+    color: $color-neutral60;
+    font-size: 18px;
+}
+
+.list{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 18px;
+}
+
+ul{
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+li{
+    all: unset;
+}
+
+li a{
+    transition: 0.4s;
+}
+
+li a:hover{
+    color: $color-neutral60;
+}
+
+.bottom_content{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 32px;
+    border-top: 1px solid $color-neutral80;
+    font-size: 18px;
+    color: $color-neutral60;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.links a{
+    color: $color-neutral60;
+    transition: 0.4s;
+}
+
+.links a:hover{
+    color: #fff;
+}
+
+.elipse{
+    width: 5px;
+    height: 5px;
+    background-color: $color-neutral60;
+    border-radius: 5px;
+}

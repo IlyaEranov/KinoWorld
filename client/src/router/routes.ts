@@ -4,6 +4,9 @@ const HomePage = React.lazy(() => import("../components/pages/HomePage/HomePage"
 const LoginPage = React.lazy(() => import("../components/pages/LoginPage/LoginPage"))
 const RegisterPage = React.lazy(() => import("../components/pages/RegisterPage/RegisterPage"))
 const ProfilePage = React.lazy(() => import("../components/pages/ProfilePage/ProfilePage"))
+const FilmsPage = React.lazy(() => import("../components/pages/FilmsPage/FilmsPage"))
+const SeriesPage = React.lazy(() => import("../components/pages/SeriesPage/SeriesPage"))
+const AboutPage = React.lazy(() => import("../components/pages/AboutPage/AboutPage"))
 
 interface RoutesType{
     index?: boolean
@@ -15,13 +18,19 @@ enum RouteName{
     Home = "/",
     Login = "/login",
     Register = "/register",
-    Profile = "/profile"
+    Profile = "/profile",
+    Films = "/films",
+    Series = "/series",
+    About = "/about"
 }
 
 export const publicRoutes: RoutesType[] = [
     {index: true, path: RouteName.Home, component: HomePage},
     {path: RouteName.Login, component: LoginPage},
-    {path: RouteName.Register, component: RegisterPage}
+    {path: RouteName.Register, component: RegisterPage},
+    {path: RouteName.Films, component: FilmsPage},
+    {path: RouteName.Series, component: SeriesPage},
+    {path: RouteName.About, component: AboutPage}
 ]
 
 export const privateRoutes: RoutesType[] = [

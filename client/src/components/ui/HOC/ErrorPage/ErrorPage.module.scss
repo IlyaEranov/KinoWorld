@@ -1,0 +1,12 @@
+@import "../../../../style/variables";
+
+.message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: $color-neutral100;
+    height: 100vh;
+    width: 100vw;
+    font-size: 24px;
+}
