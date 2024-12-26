@@ -16,9 +16,7 @@ export const getKinoTop10 = createAsyncThunk<IKino, KinoProps, {rejectValue: str
     async ({limit}, {rejectWithValue}) => {
         try{
             const response = await axios.get(`
-                ${api.endPointKinoPoisk}/movie?
-                limit=${limit}
-                &notNullFields=top10`, {
+                ${api.endPointKinoPoisk}/movie?limit=${limit}&notNullFields=top10`, {
                 headers: {
                     "Content-Type": "application/json",
                     "X-API-KEY": api["X-API-KEY"]
@@ -37,13 +35,9 @@ export const getMovie = createAsyncThunk<IKino, KinoProps, {rejectValue: string 
         try{
             let notNullField = notNullFields?.map(e => `&notNullFields=${e}`).join("")
             let genresName = genres === undefined ? `&` : `&genres.name=${genres}`
+            let pageNum = page === undefined ? `&` : `&page=${page}`
             const response = await axios.get(`
-            ${api.endPointKinoPoisk}/movie?
-            limit=${limit}
-            &page=${page}
-            &type=movie
-            ${notNullField}
-            ${genresName}`, {
+            ${api.endPointKinoPoisk}/movie?limit=${limit}${pageNum}&type=movie${notNullField}${genresName}&sortType=1&sortField=top250`, {
                 headers: {
                     "X-API-KEY": api["X-API-KEY"]
                 }
@@ -57,17 +51,18 @@ export const getMovie = createAsyncThunk<IKino, KinoProps, {rejectValue: string 
 
 export const getSeries = createAsyncThunk<IKino, KinoProps, {rejectValue: string | null}>(
     "kino/getSeries",
-    async ({limit, page, genres, notNullFields}, {rejectWithValue}) => {
+    async ({limit, notNullFields, genres, page}, {rejectWithValue}) => {
         try{
+            let notNullField = notNullFields?.map(e => `&notNullFields=${e}`).join("")
+            let genresName = genres === undefined ? `&` : `&genres.name=${genres}`
+            let pageNum = page === undefined ? `&` : `&page=${page}`
             const response = await axios.get(`
-                ${api.endPointKinoPoisk}/movie?
-                limit=${limit}
-                &page=${page}
-                `, {
-                    headers: {
-                        "X-API-KEY": `${api["X-API-KEY"]}`
-                    }
-                })
+            ${api.endPointKinoPoisk}/movie?limit=${limit}${pageNum}&type=tv-series${notNullField}${genresName}`, {
+                headers: {
+                    "X-API-KEY": api["X-API-KEY"]
+                }
+            })
+            return response.data
         } catch (e: any) {
             return rejectWithValue(`Server Error: ${e["message"]}`)
         }
@@ -79,6 +74,7 @@ export interface KinoState{
     isUpdating: boolean
     entitiesTop10: IKino | null
     entitiesMovie: IKino["docs"]
+    entitiesSeries: IKino["docs"]
     error: string | null
 }
 
@@ -87,6 +83,7 @@ const initialState: KinoState = {
     isUpdating: false,
     entitiesTop10: null,
     entitiesMovie: [],
+    entitiesSeries: [],
     error: null
 }
 
@@ -119,7 +116,7 @@ const KinoSlice = createSlice({
             state.isLoading = false
             state.error = action.payload!
         })
-        //type
+        //movie
         .addCase(getMovie.pending, (state) => {
             state.isUpdating = true
         })
@@ -131,6 +128,21 @@ const KinoSlice = createSlice({
             state.error = null
         })
         .addCase(getMovie.rejected, (state, action) => {
+            state.isUpdating = false
+            state.error = action.payload!
+        })
+        //series
+        .addCase(getSeries.pending, (state) => {
+            state.isUpdating = true
+        })
+        .addCase(getSeries.fulfilled, (state, action) => {
+            state.isUpdating = false
+            for(let i = 0; i < action.payload.docs.length; i++){
+                state.entitiesSeries.push(action.payload.docs[i])
+            }
+            state.error = null
+        })
+        .addCase(getSeries.rejected, (state, action) => {
             state.isUpdating = false
             state.error = action.payload!
         })

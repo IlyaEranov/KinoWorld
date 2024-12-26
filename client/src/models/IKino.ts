@@ -18,6 +18,5 @@ interface docs{
 }
 
 export interface IKino{
-    limit?: number
     docs: docs[]
 }

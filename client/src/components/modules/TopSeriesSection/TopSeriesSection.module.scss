@@ -1,0 +1,40 @@
+@import "../../../style/variables";
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.h1 {
+    font-size: 48px;
+}
+
+.slider{
+    height: 660px;
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.container__image{
+    cursor: pointer;
+    width: 200px;
+    transition: 0.4s;
+    z-index: 1;
+    &.active{
+        width: 440px;
+        &.description{
+            opacity: 1;
+        }
+    }
+}
+
+.image{
+    border-radius: 10px;
+    height: 100%;
+    z-index: 0;
+}
+
