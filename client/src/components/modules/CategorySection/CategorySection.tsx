@@ -46,7 +46,7 @@ const CategorySection = React.memo(() => {
                                     dispatch(resetEntitiesMovie())
                                     dispatch(getMovie({
                                         limit: 6,
-                                        notNullFields: ["poster.url", "description"],
+                                        notNullFields: ["poster.url", "description", "top250"],
                                         genres: genresList[i] == "все" ? undefined : genresList[i],
                                     }))
                                 }}

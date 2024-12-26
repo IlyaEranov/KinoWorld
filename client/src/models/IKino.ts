@@ -15,9 +15,13 @@ interface docs{
         url: string
         previewUrl: string
     }
+    rating: {
+        kp: number
+    }
+    type: string
+    year: number
 }
 
 export interface IKino{
-    limit?: number
     docs: docs[]
 }

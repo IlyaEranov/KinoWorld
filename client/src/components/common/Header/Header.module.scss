@@ -59,3 +59,36 @@ nav a:hover{
     color: #fff;
     background-color: $color-neutral90;
 }
+
+.content{
+    padding-bottom: 10px;
+}
+
+.element{
+    display: flex;
+    transition: 0.4s;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.element:hover{
+    background-color: $color-neutral80;
+}
+
+.image{
+    height: 72px;
+    width: 48px;
+    border-radius: 6px;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 4px;
+}
+
+.row{
+    display: flex;
+    gap: 8px;
+}

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux"
-import {getMovie, getKinoTop10 } from "../../../../store/reducers/KinoSlice"
+import {getMovie, getKinoTop10, getSeries, searchKino } from "../../../../store/reducers/KinoSlice"
 import Spinner from "../Spinner/Spinner"
 import ErrorPage from "../ErrorPage/ErrorPage"
 
@@ -14,7 +14,9 @@ const AppLoader: FC<AppLoaderProps> = ({children}) => {
 
     useEffect(() => {
         dispatch(getKinoTop10({limit: 5}))
-        dispatch(getMovie({limit: 6, notNullFields: ["poster.url", "description"]}))
+        dispatch(getMovie({limit: 6, notNullFields: ["poster.url", "description", "top250"]}))
+        dispatch(getSeries({limit: 6, notNullFields: ["poster.url", "description", "top250"]}))
+        dispatch(searchKino(""))
     }, [])
 
     const {isLoading, error} = useAppSelector(state => state.KinoReducer)

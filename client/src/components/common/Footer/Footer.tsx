@@ -3,6 +3,7 @@ import s from "./Footer.module.scss"
 import { NavLink } from "react-router-dom"
 import ctaBackgroundImage from "../../../assets/images/ff0d0aaa3c99bebaf1def49db0cb822c.jpg"
 import Button from "../../ui/Button/Button"
+import { AiFillCaretUp } from "react-icons/ai"
 
 function Footer(){
     return(
@@ -24,7 +25,7 @@ function Footer(){
                 <div className={s.list}>
                     <ul>
                         <li>
-                            <NavLink to={"/"}>Главная</NavLink>
+                            <Link to={"/"}>Главная</Link>
                         </li>
                         <li>
                             <Link to={"/films"}>Фильмы</Link>
@@ -46,6 +47,10 @@ function Footer(){
                     <Link to="https://yandex.ru/legal/kinopoisk_vod">Политика Конфиденциальности</Link>
                 </div>
             </div>
+            <AiFillCaretUp 
+                className={s.up_arrow} 
+                onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}
+            />
         </footer>
         </>
     )

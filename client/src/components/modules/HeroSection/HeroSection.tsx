@@ -9,15 +9,16 @@ import { resetLoading, setLoading } from "../../../store/reducers/KinoSlice"
 
 const HeroSection = React.memo(() => {
 
+    const limit = 5
     const dispatch = useAppDispatch()
     const { entitiesTop10 } = useAppSelector(state => state.KinoReducer)
-    const {current, selectElement, images, setImages} = useSlider({limit: 5, time: 5000})
+    const {current, selectElement, images, setImages} = useSlider({limit, time: 5000})
 
     useEffect(() => {
         dispatch(setLoading())
         if (entitiesTop10) {
             let images: HTMLImageElement[] = []
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < limit; i++) {
                 let image = new Image()
                 image.src = entitiesTop10.docs[i].backdrop.url
                 images.push(image)
