@@ -32,7 +32,11 @@ export const getKinoTop10 = createAsyncThunk<IKino, KinoProps, {rejectValue: str
     async ({limit}, {rejectWithValue}) => {
         try{
             const response = await axios.get(`
+<<<<<<< HEAD
                 ${api.endPointKinoPoisk}/movie?limit=${limit}&notNullFields=top10&notNullFields=description`, {
+=======
+                ${api.endPointKinoPoisk}/movie?limit=${limit}&notNullFields=top10`, {
+>>>>>>> 1b120a2f59e059d3e237821a852199ae103a5f53
                 headers: {
                     "Content-Type": "application/json",
                     "X-API-KEY": api["X-API-KEY"]
@@ -92,7 +96,10 @@ export interface KinoState{
     entitiesTop10: IKino | null
     entitiesMovie: IKino["docs"]
     entitiesSeries: IKino["docs"]
+<<<<<<< HEAD
     updatingError: string | null
+=======
+>>>>>>> 1b120a2f59e059d3e237821a852199ae103a5f53
     error: string | null
 }
 
@@ -103,7 +110,10 @@ const initialState: KinoState = {
     entitiesTop10: null,
     entitiesMovie: [],
     entitiesSeries: [],
+<<<<<<< HEAD
     updatingError: null,
+=======
+>>>>>>> 1b120a2f59e059d3e237821a852199ae103a5f53
     error: null
 }
 
@@ -178,6 +188,21 @@ const KinoSlice = createSlice({
         .addCase(searchKino.rejected, (state, action) => {
             state.isUpdating = false
             state.updatingError = action.payload!
+        })
+        //series
+        .addCase(getSeries.pending, (state) => {
+            state.isUpdating = true
+        })
+        .addCase(getSeries.fulfilled, (state, action) => {
+            state.isUpdating = false
+            for(let i = 0; i < action.payload.docs.length; i++){
+                state.entitiesSeries.push(action.payload.docs[i])
+            }
+            state.error = null
+        })
+        .addCase(getSeries.rejected, (state, action) => {
+            state.isUpdating = false
+            state.error = action.payload!
         })
     }
 })
