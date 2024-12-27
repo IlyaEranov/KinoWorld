@@ -1,3 +1,13 @@
+interface name{
+    name: string
+}
+
+interface persons{
+    name: string
+    description: string
+    profession: string
+}
+
 interface docs{
     id: number
     name: string
@@ -20,6 +30,10 @@ interface docs{
     }
     type: string
     year: number
+    ageRating: number
+    countries: name[]
+    genres: name[]
+    persons: persons[]
 }
 
 export interface IKino{

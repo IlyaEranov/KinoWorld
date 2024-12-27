@@ -11,6 +11,22 @@ interface KinoProps{
     genres?: string
 }
 
+export const getKinoById = createAsyncThunk<IKino, string, {rejectValue: string | null}>(
+    "kino/getKinoById",
+    async (id, {rejectWithValue}) => {
+        try{
+            const response = await axios.get(`${api.endPointKinoPoisk}/movie/${id}`, {
+                headers: {
+                    "X-API-KEY": `${api["X-API-KEY"]}`
+                }
+            })
+            return response.data
+        } catch (e: any) {
+            return rejectWithValue(`Server Error. ${e["message"]}`)
+        }
+    }
+)
+
 export const searchKino = createAsyncThunk<IKino, string, {rejectValue: string | null}>(
     "kino/searchKino",
     async (name, {rejectWithValue}) => {
@@ -86,23 +102,27 @@ export const getSeries = createAsyncThunk<IKino, KinoProps, {rejectValue: string
 )
 
 export interface KinoState{
+    kinoId: string | null
     isLoading: boolean
     isUpdating: boolean
     entitiesTop10: IKino | null
     entitiesMovie: IKino["docs"]
     entitiesSeries: IKino["docs"]
     entitiesSearch: IKino | null
+    entitieKino: IKino["docs"] | null
     updatingError: string | null
     error: string | null
 }
 
 const initialState: KinoState = {
+    kinoId: null,
     isLoading: false,
     isUpdating: false,
     entitiesTop10: null,
     entitiesMovie: [],
     entitiesSeries: [],
     entitiesSearch: null,
+    entitieKino: null,
     updatingError: null,
     error: null
 }
@@ -119,6 +139,9 @@ const KinoSlice = createSlice({
         },
         resetEntitiesMovie: (state) => {
             state.entitiesMovie = []
+        },
+        setKinoId: (state, action) => {
+            state.kinoId = action.payload
         }
     },
     extraReducers: builder => {
@@ -178,6 +201,19 @@ const KinoSlice = createSlice({
         .addCase(searchKino.rejected, (state, action) => {
             state.isUpdating = false
             state.updatingError = action.payload!
+        })
+        //byId
+        .addCase(getKinoById.pending, (state) => {
+            state.isLoading = true
+        })
+        .addCase(getKinoById.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.entitieKino = action.payload.docs
+            state.error = null
+        })
+        .addCase(getKinoById.rejected, (state, action) => {
+            state.isLoading = false
+            state.error = action.payload!
         })
     }
 })

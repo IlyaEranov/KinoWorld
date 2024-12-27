@@ -6,6 +6,7 @@ import React, { useEffect } from "react"
 import Container from "../../common/Container/Container"
 import { useSlider } from "../../../hooks/useSlider"
 import { resetLoading, setLoading } from "../../../store/reducers/KinoSlice"
+import { Link } from "react-router-dom"
 
 const HeroSection = React.memo(() => {
 
@@ -39,8 +40,8 @@ const HeroSection = React.memo(() => {
                         <p className={s.p}>{entitiesTop10.docs[current].description}</p>
                     </div>
                     <div className={s.buttons}>
-                        <Button><span>Смотреть трейлер</span><FaCirclePlay/></Button>
-                        <Button buttonType="inverted">Детали</Button>
+                        <Link to={`/film/${entitiesTop10.docs[current].id}`}><Button><span>Смотреть трейлер</span><FaCirclePlay/></Button></Link>
+                        <Link to={`/film/${entitiesTop10.docs[current].id}`}><Button buttonType="inverted">Детали</Button></Link>
                     </div>
                 </div>
                 <div className={s.list__indicator}>
