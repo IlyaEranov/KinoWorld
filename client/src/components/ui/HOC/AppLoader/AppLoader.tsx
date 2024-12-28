@@ -13,10 +13,10 @@ const AppLoader: FC<AppLoaderProps> = ({children}) => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        // dispatch(getKinoTop10({limit: 5}))
-        // dispatch(getMovie({limit: 6, notNullFields: ["poster.url", "description", "top250"]}))
-        // dispatch(getSeries({limit: 6, notNullFields: ["poster.url", "description", "top250"]}))
-        // dispatch(searchKino(""))
+        dispatch(getKinoTop10({limit: 5}))
+        dispatch(getMovie({limit: 6, notNullFields: ["poster.url", "description", "top250"]}))
+        dispatch(getSeries({limit: 6, notNullFields: ["poster.url", "description", "top250"]}))
+        dispatch(searchKino(""))
     }, [])
 
     const {isLoading, error} = useAppSelector(state => state.KinoReducer)

@@ -40,8 +40,12 @@ const HeroSection = React.memo(() => {
                         <p className={s.p}>{entitiesTop10.docs[current].description}</p>
                     </div>
                     <div className={s.buttons}>
-                        <Link to={`/film/${entitiesTop10.docs[current].id}`}><Button><span>Смотреть трейлер</span><FaCirclePlay/></Button></Link>
-                        <Link to={`/film/${entitiesTop10.docs[current].id}`}><Button buttonType="inverted">Детали</Button></Link>
+                        {/* <Link to={`/film/${entitiesTop10.docs[current].id}`}> */}
+                            <Button><span>Смотреть трейлер</span><FaCirclePlay/></Button>
+                         {/* </Link> */}
+                        {/* <Link to={`/film/${entitiesTop10.docs[current].id}`}> */}
+                            <Button buttonType="inverted">Детали</Button>
+                        {/* </Link> */}
                     </div>
                 </div>
                 <div className={s.list__indicator}>
