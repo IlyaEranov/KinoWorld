@@ -1,0 +1,19 @@
+@import "../../../../style/variables";
+
+.button{
+    all: unset;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid $color-neutral70;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover{
+    border-color: $color-neutral80;
+}
+
+.icon{
+    width: 23px;
+    height: 23px;
+}

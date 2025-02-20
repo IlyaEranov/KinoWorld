@@ -1,0 +1,44 @@
+@import "../../../style/variables";
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+    padding: 0 200px;
+}
+
+.logo{
+    font-size: 32px;
+    font-family: "bold";
+    width: 330px; //edit
+}
+
+nav{
+    display: flex;
+    gap: 32px;
+}
+
+nav a{
+    color: $color-neutral60;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: 0.5s;
+}
+
+nav a:hover{
+    color: #fff;
+    background-color: $color-neutral90;
+}
+
+.buttons{
+    display: flex;
+    max-height: 56px;
+    gap: 16px;
+}
+
+.active {
+    color: #fff;
+    background-color: $color-neutral90;
+}

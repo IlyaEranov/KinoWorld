@@ -1,0 +1,46 @@
+@import "../../../../../style/variables";
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    cursor: pointer;
+    background-color: #000000;
+    position: relative;
+    border-radius: 10px;
+}
+
+.image {
+    position: relative;
+    transition: 0.4s;
+    max-height: 420px;
+    max-width: 240px;
+    border-radius: 10px;
+}
+
+.description {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    padding: 24px;
+    transition: 0.4s;
+}
+
+.p {
+    color: $color-neutral60;
+}
+
+.card:hover {
+    .description {
+        opacity: 1;
+    }
+
+    .image {
+        opacity: 0.2;
+    }
+}

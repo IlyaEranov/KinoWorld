@@ -1,0 +1,31 @@
+@import "../../../../style/variables";
+
+.search{
+    display: flex;
+    align-items: center;
+    padding: 24px 16px;
+    border: 1px solid $color-neutral60;
+    border-radius: 6px;
+    gap: 16px;
+    cursor: text;
+    transition: 0.4s;
+    margin: 20px;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    color: $color-neutral60;
+    transition: 0.4s;
+}
+
+.input{
+    all: unset;
+    width: 600px;
+    font-size: 18px;
+    transition: 0.4s;
+}
+
+.input::placeholder{
+    transition: 0.4s;
+}

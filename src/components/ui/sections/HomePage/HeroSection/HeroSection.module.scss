@@ -1,0 +1,22 @@
+@import "../../../../../style/variables";
+
+.list {
+    display: flex;
+    gap: 8px;
+}
+
+.indicator {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border-radius: 24px;
+    background-color: $color-neutral80;
+    transition: 0.4s;
+
+    &.active {
+        width: 60px;
+        background-color: $color-main;
+    }
+}
