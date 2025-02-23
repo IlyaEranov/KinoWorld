@@ -25,7 +25,6 @@ function GenresCard() {
         dispatch(getKino({
             genres: genresList[i] == "все" ? undefined : genresList[i],
             notNullFields: ["poster.url", "description", "top250"],
-            limit: 6
         }))
     }
 

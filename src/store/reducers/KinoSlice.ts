@@ -12,9 +12,8 @@ const httpKino = axios.create({
 })
 
 interface KinoProps{
-    limit?: number
     page?: number
-    type?: string
+    type?: string[]
     notNullFields?: string[]
     genres?: string
 }
@@ -33,15 +32,14 @@ export const getKinoById = createAsyncThunk<IKino, string, {rejectValue: string 
 
 export const getKino = createAsyncThunk<docsKino, KinoProps, {rejectValue: string | null}>(
     "kino/getKino",
-    async ({limit, genres, notNullFields, type, page}, {rejectWithValue}) => {
+    async ({genres, notNullFields, type, page}, {rejectWithValue}) => {
         try{
-            const pageQuery = page ? `&page=${page}` : `&`
-            const limitQuery = limit ? `&limit=${limit}` : `&`    
-            const typeQuery = type ? `&type=${type}` : `&`
+            const pageQuery = page ? `&page=${page}` : `&`  
+            const typeQuery = type?.map(e => `&type=${e}`).join("")
             const notNullFieldsQuery = notNullFields?.map(e => `&notNullFields=${e}`).join("")
             const genresQuery = genres ? `&genres.name=${genres}` : `&` 
 
-            const response = await httpKino.get(`/movie?${limitQuery}${pageQuery}${typeQuery}${genresQuery}${notNullFieldsQuery}`)
+            const response = await httpKino.get(`/movie?${pageQuery}${typeQuery}${genresQuery}${notNullFieldsQuery}`)
             return response.data
         } catch (e: any) {
             return rejectWithValue(`Server Error. ${e["message"]}`)
