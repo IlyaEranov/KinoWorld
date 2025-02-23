@@ -24,8 +24,8 @@ function Header(){
             </nav>
             <div className={s.buttons}>
                 <SearchButton/>
-                <Link to={"/auth/login"}><Button>Регестрация</Button></Link>
-                <Link to={"/auth/register"}><Button type="inverted">Войти</Button></Link>
+                <Link to={"/auth/register"}><Button>Регестрация</Button></Link>
+                <Link to={"/auth/login"}><Button type="inverted">Войти</Button></Link>
             </div>
         </header>
     )
