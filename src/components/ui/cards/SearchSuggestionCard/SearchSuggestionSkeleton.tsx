@@ -1,0 +1,22 @@
+import SkeletonTemplate from "../../../HOC/SkeletonTemplate/SkeletonTemplate"
+import s from "./SearchSuggestionCard.module.scss"
+
+function SearchSuggestionSkeleton(){
+    return(
+        <div className={s.card}>
+            <div className={s.image}>
+                <SkeletonTemplate/>
+            </div>
+            <div className={s.description}>
+                <div className={s.head}>
+                    <SkeletonTemplate/>
+                </div>
+                <div className={s.body}>
+                    <SkeletonTemplate/>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default SearchSuggestionSkeleton
