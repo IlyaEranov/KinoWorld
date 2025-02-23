@@ -10,7 +10,8 @@ function WatchPage() {
     return (
         <Layout>
             {(type && id) ? <KinoPage id={id}/> :
-                (type && (type == "movies" || type == "series" || type == "animations")) ? <KinoTypePage type={type}/> : <Navigate to={"/"}/>}
+                (type && (type == "movies" || type == "series" || type == "animations")) ?
+                <KinoTypePage type={type}/> : <Navigate to={"/"}/>}
         </Layout>
     )
 
