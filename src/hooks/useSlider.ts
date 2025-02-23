@@ -16,7 +16,13 @@ export function useSlider(limit: number = 0, time: number = 10000){
     }, time)
 
     const selectElement = (i: number) => {
-        setCurrent(i)
+        if(i > limit - 1){
+            setCurrent(0)
+        } else if(i < 0) {
+            setCurrent(limit - 1)
+        } else {
+            setCurrent(i)
+        }
         clearTimeout(timeout.current)
     }
 

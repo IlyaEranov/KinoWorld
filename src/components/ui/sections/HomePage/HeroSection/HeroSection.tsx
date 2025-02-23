@@ -4,6 +4,7 @@ import Container from "../../../../common/Container/Container"
 import { useSlider } from "../../../../../hooks/useSlider"
 import KinoSliderCard from "../../../cards/HomePage/KinoSliderCard/KinoSliderCard"
 import s from "./HeroSection.module.scss"
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai"
 
 function HeroSection() {
 
@@ -21,14 +22,18 @@ function HeroSection() {
        <Container>
             {top10Entities && 
             <>
-                {images.length != 0 &&
-                <KinoSliderCard 
-                    id={top10Entities.docs[current].id}
-                    name={top10Entities.docs[current].name}
-                    description={top10Entities.docs[current].description}
-                    image={images[current].src}
-                    type={top10Entities.docs[current].type}
-                />}
+                {images.length != 0 && 
+                <div className={s.slider_container}>
+                    <AiFillCaretLeft className={`${s.arrow} ${s.left}`} onClick={() => selectElement(current - 1)}/>
+                    <KinoSliderCard 
+                        id={top10Entities.docs[current].id}
+                        name={top10Entities.docs[current].name}
+                        description={top10Entities.docs[current].description}
+                        image={images[current].src}
+                        type={top10Entities.docs[current].type}
+                    />
+                    <AiFillCaretRight className={`${s.arrow} ${s.right}`} onClick={() => selectElement(current + 1)}/>
+                </div>}
                 
                 <div className={s.list}>
                     {limit && [...Array(limit)].map((_, i) =>
