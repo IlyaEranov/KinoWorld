@@ -44,8 +44,20 @@ export const kinoUtil = {
                 return "series"
             case "carton":
             case "anime":
-            case "anime-series":
+            case "animated-series":
                 return "animations"
+            default:
+                return ""
+        }
+    },
+    searchType: (value: string) => {
+        switch(value){
+            case "movies":
+                return "Поиск по фильмам"
+            case "series":
+                return "Поиск по сериалам"
+            case "animations":
+                return "Поиск по аниме и мультфильмам"
             default:
                 return ""
         }

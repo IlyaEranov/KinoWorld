@@ -14,6 +14,7 @@ export interface IKino{
     type: string
     year: number
     description: string
+    shortDescription: string
 }
 
 export interface docsKino{
