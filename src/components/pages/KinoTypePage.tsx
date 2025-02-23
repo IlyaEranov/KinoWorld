@@ -1,4 +1,6 @@
 import { FC } from "react"
+import KinoTypeSection from "../ui/sections/KinoTypeSection/KinoTypeSection"
+import Container from "../common/Container/Container"
 
 interface KinoTypePageProps{
     type: string
@@ -6,9 +8,9 @@ interface KinoTypePageProps{
 
 const KinoTypePage: FC<KinoTypePageProps> = ({type}) => {
     return(
-        <>
-            {type}
-        </>
+        <Container>
+            <KinoTypeSection/>
+        </Container>
     )
 }
 

@@ -5,7 +5,7 @@ import GenresCard from "../../../cards/HomePage/GenresCard/GenresCard"
 import KinoCard from "../../../cards/HomePage/KinoCard/KinoCard"
 import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
-import SkeletonTemplate from "../../../../HOC/SkeletonTemplate/SkeletonTemplate"
+import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"
 
 function CategorySection(){
 
