@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react"
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
-import ScrollToUp from "../../../utils/ScrollToUp"
+import ScrollToUp from "../../HOC/ScrollToUp"
 
 interface LayoutProps{
     children: ReactNode
