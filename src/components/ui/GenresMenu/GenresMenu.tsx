@@ -1,7 +1,7 @@
 import { useState } from "react"
-import s from "./GenresCard.module.scss"
-import { useAppDispatch } from "../../../../../hooks/redux"
-import { getKino, resetKinoEntities } from "../../../../../store/reducers/KinoSlice"
+import s from "./GenresMenu.module.scss"
+import { useAppDispatch } from "../../../hooks/redux"
+import { getKino, resetKinoEntities } from "../../../store/reducers/KinoSlice"
 
 const genresList = [
     "все",
@@ -14,7 +14,7 @@ const genresList = [
     "криминал"
 ]
 
-function GenresCard() {
+function GenresMenu() {
 
     const [current, setCurrent] = useState<string>(genresList[0])
     const dispatch = useAppDispatch()
@@ -48,4 +48,4 @@ function GenresCard() {
     )
 }
 
-export default GenresCard
+export default GenresMenu

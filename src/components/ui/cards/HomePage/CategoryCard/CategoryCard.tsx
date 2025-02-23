@@ -1,5 +1,5 @@
 import { FC } from "react"
-import s from "./KinoCard.module.scss"
+import s from "./CategoryCard.module.scss"
 import { Link } from "react-router-dom"
 import { kinoUtil } from "../../../../../utils/kinoUtil"
 
@@ -11,7 +11,7 @@ interface KinoCardProps{
     type: string
 }
 
-const KinoCard: FC<KinoCardProps> = ({image, name, description, type, id}) => {
+const CategoryCard: FC<KinoCardProps> = ({image, name, description, type, id}) => {
     return(
         <Link to={`/watch/${kinoUtil.linkType(type)}/${id}`} className={s.card}>
             <img className={s.image} src={image}/>
@@ -23,4 +23,4 @@ const KinoCard: FC<KinoCardProps> = ({image, name, description, type, id}) => {
     )
 }
 
-export default KinoCard
+export default CategoryCard

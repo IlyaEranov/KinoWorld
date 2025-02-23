@@ -1,7 +1,7 @@
 import React, { ComponentType } from "react"
 
 const HomePage = React.lazy(() => import("../components/pages/HomePage"))
-const WatchPage = React.lazy(() => import("../components/pages/WatchPage"))
+const KinoPage = React.lazy(() => import("../components/HOC/RedirectToWatch"))
 
 enum RoutesNames{
     Home = "/",
@@ -17,7 +17,7 @@ interface RouteType{
 
 export const publicRoutes: RouteType[] = [
     {index: true, path: RoutesNames.Home, component: HomePage},
-    {path: RoutesNames.Watch, component: WatchPage}
+    {path: RoutesNames.Watch, component: KinoPage}
 ]
 
 export enum pathsLinks{

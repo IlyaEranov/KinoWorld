@@ -1,5 +1,5 @@
-import SkeletonTemplate from "../../../common/SkeletonTemplate/SkeletonTemplate"
-import s from "./SearchSuggestionCard.module.scss"
+import SkeletonTemplate from "../../common/SkeletonTemplate/SkeletonTemplate"
+import s from "./SearchSuggestion.module.scss"
 
 function SearchSuggestionSkeleton(){
     return(

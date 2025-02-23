@@ -1,8 +1,8 @@
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux"
 import { searchKino } from "../../../../store/reducers/KinoSlice"
 import SearchField from "../../../common/Fields/SearchField/SearchField"
-import SearchSuggestionCard from "../../cards/SearchSuggestionCard/SearchSuggestionCard"
-import SearchSuggestionSkeleton from "../../cards/SearchSuggestionCard/SearchSuggestionSkeleton"
+import SearchSuggestion from "../../SearchSuggestion/SearchSuggestion"
+import SearchSuggestionSkeleton from "../../SearchSuggestion/SearchSuggestionSkeleton"
 import s from "./SearchModal.module.scss"
 
 function SearchModal(){
@@ -22,7 +22,7 @@ function SearchModal(){
                 {isSkeletonLoading ? [...Array(7)].map((_, i) => <SearchSuggestionSkeleton key={i}/>) : 
                     searchEntities?.docs.map((e, i) => 
                         (i < 7 && e.rating.kp != 0) &&
-                        <SearchSuggestionCard
+                        <SearchSuggestion
                             key={i}
                             id={e.id}
                             image={e.poster.url || e.poster.previewUrl}

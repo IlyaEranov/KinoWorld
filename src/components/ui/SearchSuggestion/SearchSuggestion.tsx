@@ -1,9 +1,9 @@
 import { FC } from "react"
-import s from "./SearchSuggestionCard.module.scss"
-import { kinoUtil } from "../../../../utils/kinoUtil"
+import s from "./SearchSuggestion.module.scss"
+import { kinoUtil } from "../../../utils/kinoUtil"
 import { Link } from "react-router-dom"
 
-interface SearchSuggestionCardProps{
+interface SearchSuggestionProps{
     id: string
     image: string
     name: string
@@ -12,7 +12,7 @@ interface SearchSuggestionCardProps{
     year: number
 }
 
-const SearchSuggestionCard: FC<SearchSuggestionCardProps> = ({id, image, name, rating, type, year}) => {
+const SearchSuggestion: FC<SearchSuggestionProps> = ({id, image, name, rating, type, year}) => {
     return(
         <Link to={`/watch/${kinoUtil.linkType(type)}/${id}`} className={s.card}>
             <img className={s.image} src={image}/>
@@ -30,4 +30,4 @@ const SearchSuggestionCard: FC<SearchSuggestionCardProps> = ({id, image, name, r
     )
 }
 
-export default SearchSuggestionCard
+export default SearchSuggestion
