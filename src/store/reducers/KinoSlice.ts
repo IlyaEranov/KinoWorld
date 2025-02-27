@@ -11,13 +11,6 @@ const httpKino = axios.create({
     }
 })
 
-interface KinoProps{
-    page?: number
-    type?: string[]
-    notNullFields?: string[]
-    genres?: string
-}
-
 export const getKinoById = createAsyncThunk<IKino, string, {rejectValue: string | null}>(
     "kino/getKinoById",
     async (id, {rejectWithValue}) => {
@@ -30,16 +23,17 @@ export const getKinoById = createAsyncThunk<IKino, string, {rejectValue: string 
     }
 )
 
-export const getKino = createAsyncThunk<docsKino, KinoProps, {rejectValue: string | null}>(
-    "kino/getKino",
-    async ({genres, notNullFields, type, page}, {rejectWithValue}) => {
+export const getKinoByGenres = createAsyncThunk<docsKino, string | null, {rejectValue: string | null}>(
+    "kino/getKinoByGenres",
+    async (genresName, {rejectWithValue}) => {
         try{
-            const pageQuery = page ? `&page=${page}` : `&`  
-            const typeQuery = type?.map(e => `&type=${e}`).join("")
-            const notNullFieldsQuery = notNullFields?.map(e => `&notNullFields=${e}`).join("")
-            const genresQuery = genres ? `&genres.name=${genres}` : `&` 
+            const notNullFieldsList = ["poster.url", "description", "top250"]
 
-            const response = await httpKino.get(`/movie?${pageQuery}${typeQuery}${genresQuery}${notNullFieldsQuery}`)
+            const type = "type=movie&type=tv-series"
+            const notNullFields = notNullFieldsList.map(e => `&notNullFields=${e}`).join("")
+            const genres = genresName ? `&genres.name=${genresName}` : `&` 
+
+            const response = await httpKino.get(`/movie?${type}${genres}${notNullFields}`)
             return response.data
         } catch (e: any) {
             return rejectWithValue(`Server Error. ${e["message"]}`)
@@ -75,9 +69,9 @@ export interface KinoState{
     isLoading: boolean
     isSkeletonLoading: boolean
 
-    searchEntities: docsKino | null
-    top10Entities: docsKino | null
-    kinoEntities: docsKino["docs"]
+    searchEntitie: docsKino | null
+    top10Entitie: docsKino | null
+    kinoByGenresEntitie: docsKino | null
     kinoByIdEntitie: IKino | null
 
     error: string | null
@@ -87,9 +81,9 @@ const initialState: KinoState = {
     isLoading: false,
     isSkeletonLoading: false,
 
-    searchEntities: null,
-    top10Entities: null,
-    kinoEntities: [],
+    searchEntitie: null,
+    top10Entitie: null,
+    kinoByGenresEntitie: null,
     kinoByIdEntitie: null,
 
     error: null
@@ -98,11 +92,7 @@ const initialState: KinoState = {
 const KinoSlice = createSlice({
     name: "kino",
     initialState,
-    reducers: {
-        resetKinoEntities: (state) => {
-            state.kinoEntities = []
-        }
-    },
+    reducers: {},
     extraReducers: builder => {
         builder
 
@@ -120,18 +110,16 @@ const KinoSlice = createSlice({
             state.error = action.payload!
         })
 
-        //kino
-        .addCase(getKino.pending, (state) => {
+        //kinoByGenres
+        .addCase(getKinoByGenres.pending, (state) => {
             state.isSkeletonLoading = true
         })
-        .addCase(getKino.fulfilled, (state, action) => {
+        .addCase(getKinoByGenres.fulfilled, (state, action) => {
             state.isSkeletonLoading = false
-            for(let i = 0; i < action.payload.docs.length; i++){
-                state.kinoEntities.push(action.payload.docs[i])
-            }
+            state.kinoByGenresEntitie = action.payload
             state.error = null
         })
-        .addCase(getKino.rejected, (state, action) => {
+        .addCase(getKinoByGenres.rejected, (state, action) => {
             state.isSkeletonLoading = false
             state.error = action.payload!
         })
@@ -142,7 +130,7 @@ const KinoSlice = createSlice({
         })
         .addCase(searchKino.fulfilled, (state, action) => {
             state.isSkeletonLoading = false
-            state.searchEntities = action.payload
+            state.searchEntitie = action.payload
             state.error = null
         })
         .addCase(searchKino.rejected, (state, action) => {
@@ -156,7 +144,7 @@ const KinoSlice = createSlice({
         })
         .addCase(getKinoTop10.fulfilled, (state, action) => {
             state.isLoading = false
-            state.top10Entities = action.payload
+            state.top10Entitie = action.payload
             state.error = null
         })
         .addCase(getKinoTop10.rejected, (state, action) => {
@@ -167,4 +155,4 @@ const KinoSlice = createSlice({
 })
 
 export default KinoSlice.reducer
-export const {resetKinoEntities} = KinoSlice.actions
+export const {} = KinoSlice.actions

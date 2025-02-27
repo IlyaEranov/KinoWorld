@@ -8,7 +8,7 @@ import s from "./SearchModal.module.scss"
 function SearchModal(){
 
     const dispatch = useAppDispatch()
-    const {isSkeletonLoading, searchEntities} = useAppSelector(state => state.KinoReducer)
+    const {isSkeletonLoading, searchEntitie} = useAppSelector(state => state.KinoReducer)
 
     return(
         <>
@@ -20,7 +20,7 @@ function SearchModal(){
             />
             <div className={s.content}>
                 {isSkeletonLoading ? [...Array(7)].map((_, i) => <SearchSuggestionSkeleton key={i}/>) : 
-                    searchEntities?.docs.map((e, i) => 
+                    searchEntitie && searchEntitie.docs.map((e, i) => 
                         (i < 7 && e.rating.kp != 0) &&
                         <SearchSuggestion
                             key={i}

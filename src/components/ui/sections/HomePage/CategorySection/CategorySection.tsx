@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 
 function CategorySection(){
 
-    const {isSkeletonLoading, kinoEntities} = useAppSelector(state => state.KinoReducer)
+    const {isSkeletonLoading, kinoByGenresEntitie} = useAppSelector(state => state.KinoReducer)
 
     const [isOffset, setIsOffset] = useState(false)
 
@@ -33,7 +33,7 @@ function CategorySection(){
                 <GenresMenu/>
                 <div className={s.list}>
                     {isSkeletonLoading ? [...Array(10)].map((_, i) => <div key={i} className={s.skeleton}><SkeletonTemplate/></div>) : 
-                        kinoEntities.map((e, i) => 
+                        kinoByGenresEntitie && kinoByGenresEntitie.docs.map((e, i) => 
                             <CategoryCard
                                 key={i}
                                 id={e.id}

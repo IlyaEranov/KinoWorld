@@ -1,6 +1,6 @@
 import { FC, ReactNode, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { getKino, getKinoTop10, searchKino } from "../../store/reducers/KinoSlice";
+import { getKinoByGenres, getKinoTop10, searchKino } from "../../store/reducers/KinoSlice";
 import Loader from "../common/Loader/Loader";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
@@ -16,7 +16,7 @@ const AppLoader: FC<AppLoaderProps> = ({children}) => {
     useEffect(() => {
         dispatch(searchKino(""))
         dispatch(getKinoTop10())
-        dispatch(getKino({notNullFields: ["poster.url", "description", "top250"]}))
+        dispatch(getKinoByGenres(null))
     }, [])
 
     if(isLoading){

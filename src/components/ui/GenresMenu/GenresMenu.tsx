@@ -1,7 +1,7 @@
 import { useState } from "react"
 import s from "./GenresMenu.module.scss"
 import { useAppDispatch } from "../../../hooks/redux"
-import { getKino, resetKinoEntities } from "../../../store/reducers/KinoSlice"
+import { getKinoByGenres } from "../../../store/reducers/KinoSlice"
 
 const genresList = [
     "все",
@@ -21,11 +21,7 @@ function GenresMenu() {
 
     const handlerClick = (i: number) => {
         setCurrent(genresList[i])
-        dispatch(resetKinoEntities())
-        dispatch(getKino({
-            genres: genresList[i] == "все" ? undefined : genresList[i],
-            notNullFields: ["poster.url", "description", "top250"],
-        }))
+        dispatch(getKinoByGenres(genresList[i] == "все" ? null : genresList[i]))
     }
 
     return (
