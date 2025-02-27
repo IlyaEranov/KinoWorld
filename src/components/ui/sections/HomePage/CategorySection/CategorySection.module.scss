@@ -6,6 +6,13 @@
     align-items: center;
     flex-direction: column;
     gap: 32px;
+    transform: translate3d(0, 100px, 0);
+    opacity: 0;
+    transition: opacity 1.4s, transform 0.8s;
+    &.active{
+        transform: translate3d(0, -100px, 0);
+        opacity: 1;
+    }
 }
 
 .h1{
@@ -15,7 +22,7 @@
 .list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 52px;
     overflow: hidden;
     padding: 32px 0;

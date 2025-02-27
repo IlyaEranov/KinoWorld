@@ -6,14 +6,29 @@ import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
 import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"
 import CategoryCard from "../../../cards/HomePage/CategoryCard/CategoryCard"
+import { useEffect, useState } from "react"
 
 function CategorySection(){
 
     const {isSkeletonLoading, kinoEntities} = useAppSelector(state => state.KinoReducer)
 
+    const [isOffset, setIsOffset] = useState(false)
+
+    useEffect(() => {
+        const scrollOffset = () => {
+            if(pageYOffset >= 200){
+                setIsOffset(true)
+            } else {
+                setIsOffset(false)
+            }
+        }
+        window.addEventListener("scroll", scrollOffset)
+        return () => window.removeEventListener("scroll", scrollOffset)
+    }, [])
+
     return(
         <Container>
-            <div className={s.content}>
+            <div className={isOffset ? `${s.content} ${s.active}` : s.content}>
                 <h1 className={s.h1}>Ознакомьтесь с нашим широким выбором категорий и жанров кино</h1>
                 <GenresMenu/>
                 <div className={s.list}>
