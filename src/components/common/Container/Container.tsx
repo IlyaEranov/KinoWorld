@@ -1,13 +1,36 @@
-import { FC, ReactNode } from "react"
+import { FC, ReactNode, useEffect, useState } from "react"
 import s from "./Container.module.scss"
 
 interface ContainerProps{
     children: ReactNode
+    offset?: number
 }
 
-const Container: FC<ContainerProps> = ({children}) => {
+const Container: FC<ContainerProps> = ({children, offset}) => {
+
+    const [isActive, setActive] = useState(false)
+
+    useEffect(() => {
+        if(offset){
+            const scrollOffset = () => {
+                if(pageYOffset >= offset){
+                    setActive(true)
+                } else {
+                    setActive(false)
+                }
+                console.log(scrollY)
+            }
+            addEventListener("scroll", scrollOffset)
+            return () => removeEventListener("scroll", scrollOffset)
+        }
+    }, [])
+
     return(
-        <section className={s.container}>
+        <section className={
+            offset ? 
+            (isActive ? `${s.container} ${s.animation} ${s.active}` : `${s.container} ${s.animation}`) :
+            s.container 
+        }>
             {children}
         </section>
     )
