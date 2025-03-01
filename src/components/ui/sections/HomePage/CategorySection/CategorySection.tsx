@@ -6,30 +6,15 @@ import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
 import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"
 import CategoryCard from "../../../cards/HomePage/CategoryCard/CategoryCard"
-import { useEffect, useState } from "react"
 
 function CategorySection(){
 
     const {isSkeletonLoading, kinoByGenresEntitie} = useAppSelector(state => state.KinoReducer)
 
-    const [isOffset, setIsOffset] = useState(false)
-
-    useEffect(() => {
-        const scrollOffset = () => {
-            if(pageYOffset >= 200){
-                setIsOffset(true)
-            } else {
-                setIsOffset(false)
-            }
-        }
-        window.addEventListener("scroll", scrollOffset)
-        return () => window.removeEventListener("scroll", scrollOffset)
-    }, [])
-
     return(
-        <Container>
-            <div className={isOffset ? `${s.content} ${s.active}` : s.content}>
-                <h1 className={s.h1}>Ознакомьтесь с нашим широким выбором категорий и жанров кино</h1>
+        <Container offset={200}>
+            <div className={s.content}>
+                <h1 className={s.h1}>Ознакомьтесь с нашим широким выбором категорий и жанров фильмов</h1>
                 <GenresMenu/>
                 <div className={s.list}>
                     {isSkeletonLoading ? [...Array(10)].map((_, i) => <div key={i} className={s.skeleton}><SkeletonTemplate/></div>) : 
