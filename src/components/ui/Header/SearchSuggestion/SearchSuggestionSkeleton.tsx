@@ -1,4 +1,4 @@
-import SkeletonTemplate from "../../common/SkeletonTemplate/SkeletonTemplate"
+import SkeletonTemplate from "../../../common/SkeletonTemplate/SkeletonTemplate"
 import s from "./SearchSuggestion.module.scss"
 
 function SearchSuggestionSkeleton(){

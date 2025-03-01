@@ -1,6 +1,6 @@
 import { FC } from "react"
 import s from "./SearchSuggestion.module.scss"
-import { kinoUtil } from "../../../utils/kinoUtil"
+import { kinoUtil } from "../../../../utils/kinoUtil"
 import { Link } from "react-router-dom"
 
 interface SearchSuggestionProps{

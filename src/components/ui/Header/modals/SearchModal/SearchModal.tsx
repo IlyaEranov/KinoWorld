@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "../../../../hooks/redux"
-import { searchKino } from "../../../../store/reducers/KinoSlice"
-import SearchField from "../../../common/Fields/SearchField/SearchField"
+import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux"
+import { searchKino } from "../../../../../store/reducers/KinoSlice"
+import SearchField from "../../../../common/Fields/SearchField/SearchField"
 import SearchSuggestion from "../../SearchSuggestion/SearchSuggestion"
 import SearchSuggestionSkeleton from "../../SearchSuggestion/SearchSuggestionSkeleton"
 import s from "./SearchModal.module.scss"
@@ -8,7 +8,7 @@ import s from "./SearchModal.module.scss"
 function SearchModal(){
 
     const dispatch = useAppDispatch()
-    const {isSkeletonLoading, searchEntitie} = useAppSelector(state => state.KinoReducer)
+    const {isSkeletonLoading, kinoSearch} = useAppSelector(state => state.KinoReducer)
 
     return(
         <>
@@ -20,7 +20,7 @@ function SearchModal(){
             />
             <div className={s.content}>
                 {isSkeletonLoading ? [...Array(7)].map((_, i) => <SearchSuggestionSkeleton key={i}/>) : 
-                    searchEntitie && searchEntitie.docs.map((e, i) => 
+                    kinoSearch && kinoSearch.docs.map((e, i) => 
                         (i < 7 && e.rating.kp != 0) &&
                         <SearchSuggestion
                             key={i}

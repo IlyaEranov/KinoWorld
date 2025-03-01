@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom"
 import { useAppSelector } from "../../../../../hooks/redux"
 import Container from "../../../../common/Container/Container"
-import GenresMenu from "../../../GenresMenu/GenresMenu"
+import GenresMenu from "../../GenresMenu/GenresMenu"
 import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
 import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"
-import CategoryCard from "../../../cards/HomePage/CategoryCard/CategoryCard"
+import CategoryCard from "../../cards/CategoryCard/CategoryCard"
 
 function CategorySection(){
 
-    const {isSkeletonLoading, kinoByGenresEntitie} = useAppSelector(state => state.KinoReducer)
+    const {isSkeletonLoading, kinoByGenres} = useAppSelector(state => state.KinoReducer)
 
     return(
         <Container offset={200}>
             <div className={s.content}>
-                <h1 className={s.h1}>Ознакомьтесь с нашим широким выбором категорий и жанров фильмов</h1>
+                <h1 className={s.h1}>Ознакомьтесь с нашим широким выбором жанров фильмов</h1>
                 <GenresMenu/>
                 <div className={s.list}>
                     {isSkeletonLoading ? [...Array(10)].map((_, i) => <div key={i} className={s.skeleton}><SkeletonTemplate/></div>) : 
-                        kinoByGenresEntitie && kinoByGenresEntitie.docs.map((e, i) => 
+                        kinoByGenres && kinoByGenres.map((e, i) => 
                             <CategoryCard
                                 key={i}
                                 id={e.id}

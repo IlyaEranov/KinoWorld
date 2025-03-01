@@ -1,5 +1,5 @@
 import { FaCirclePlay } from "react-icons/fa6"
-import s from "./KinoSliderCard.module.scss"
+import s from "./SliderCard.module.scss"
 import Button from "../../../../common/Buttons/Button/Button"
 import { FC } from "react"
 import { Link } from "react-router-dom"

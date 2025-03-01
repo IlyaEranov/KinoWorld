@@ -2,7 +2,7 @@ import { FiSearch } from "react-icons/fi"
 import { useModal } from "../../../../hooks/useModal"
 import s from "./SearchButton.module.scss"
 import Modal from "../../Modal/Modal"
-import SearchModal from "../../../ui/modals/SearchModal/SearchModal"
+import SearchModal from "../../../ui/Header/modals/SearchModal/SearchModal"
 
 function SearchButton(){
     

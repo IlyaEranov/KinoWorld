@@ -1,8 +1,8 @@
 import Layout from "../common/Layout/Layout"
-import CTA from "../ui/sections/CTA/CTA"
-import CategorySection from "../ui/sections/HomePage/CategorySection/CategorySection"
-import CompilationSection from "../ui/sections/HomePage/CompilationSection/CompilationSection"
-import HeroSection from "../ui/sections/HomePage/HeroSection/HeroSection"
+import CTA from "../ui/HomePage/sections/CTA/CTA"
+import CategorySection from "../ui/HomePage/sections/CategorySection/CategorySection"
+import CompilationSection from "../ui/HomePage/sections/CompilationSection/CompilationSection"
+import HeroSection from "../ui/HomePage/sections/HeroSection/HeroSection"
 
 function HomePage(){
     return(

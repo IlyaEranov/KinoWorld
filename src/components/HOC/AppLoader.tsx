@@ -16,7 +16,7 @@ const AppLoader: FC<AppLoaderProps> = ({children}) => {
     useEffect(() => {
         dispatch(searchKino(""))
         dispatch(getKinoTop10())
-        dispatch(getKinoByGenres(null))
+        dispatch(getKinoByGenres({type: "movie"}))
     }, [])
 
     if(isLoading){

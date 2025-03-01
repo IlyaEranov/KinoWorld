@@ -18,7 +18,6 @@ const Container: FC<ContainerProps> = ({children, offset}) => {
                 } else {
                     setActive(false)
                 }
-                console.log(scrollY)
             }
             addEventListener("scroll", scrollOffset)
             return () => removeEventListener("scroll", scrollOffset)

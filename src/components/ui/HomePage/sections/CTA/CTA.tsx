@@ -1,6 +1,6 @@
-import Button from "../../../common/Buttons/Button/Button"
+import Button from "../../../../common/Buttons/Button/Button"
 import s from "./CTA.module.scss"
-import ctaImage from "../../../../assets/images/ff0d0aaa3c99bebaf1def49db0cb822c.jpg"
+import ctaImage from "../../../../../assets/images/ff0d0aaa3c99bebaf1def49db0cb822c.jpg"
 
 function CTA(){
     return(
