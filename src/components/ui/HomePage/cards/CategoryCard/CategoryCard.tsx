@@ -2,14 +2,7 @@ import { FC } from "react"
 import s from "./CategoryCard.module.scss"
 import { Link } from "react-router-dom"
 import { kinoUtil } from "../../../../../utils/kinoUtil"
-
-interface KinoCardProps{
-    id: string
-    image: string
-    name: string
-    description: string
-    type: string
-}
+import { KinoCardProps } from "../../../../../types/KinoCard"
 
 const CategoryCard: FC<KinoCardProps> = ({image, name, description, type, id}) => {
     return(

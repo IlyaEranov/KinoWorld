@@ -4,16 +4,9 @@ import Button from "../../../../common/Buttons/Button/Button"
 import { FC } from "react"
 import { Link } from "react-router-dom"
 import { kinoUtil } from "../../../../../utils/kinoUtil"
+import { KinoCardProps } from "../../../../../types/KinoCard"
 
-interface KinoCardProps {
-    id: string
-    name: string
-    description: string
-    image?: string | undefined
-    type: string
-}
-
-const KinoSliderCard: FC<KinoCardProps> = ({ id, name, description, image, type}) => {
+const SliderCard: FC<KinoCardProps> = ({ id, name, description, image, type}) => {
     return (
         <>
             <div className={s.content}>
@@ -35,4 +28,4 @@ const KinoSliderCard: FC<KinoCardProps> = ({ id, name, description, image, type}
     )
 }
 
-export default KinoSliderCard
+export default SliderCard

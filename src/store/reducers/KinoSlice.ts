@@ -1,23 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { docsKino, IKino } from "../../models/IKino";
-import axios from "axios";
-import api from '../../api/api.json'
+import { docsKino, IKino, KinoProps, RejectType } from "../../models/IKino";
+import { httpKino } from "../../service/KinoService";
 
-const httpKino = axios.create({
-    baseURL: `${api.endPointKino}`,
-    headers: {
-        "Content-Type": "application/json",
-        "X-API-KEY": `${api["X-API-KEY"]}`
-    }
-})
-
-interface KinoProps{
-    type: string
-    genres?: string[]
-    page?: number
-}
-
-export const searchKino = createAsyncThunk<docsKino, string, {rejectValue: string | null}>(
+export const searchKino = createAsyncThunk<docsKino, string, RejectType>(
     "kino/searchKino",
     async (name, {rejectWithValue}) => {
         try{
@@ -29,7 +14,7 @@ export const searchKino = createAsyncThunk<docsKino, string, {rejectValue: strin
     }
 )
 
-export const getKinoTop10 = createAsyncThunk<docsKino, void, {rejectValue: string | null}>(
+export const getKinoTop10 = createAsyncThunk<docsKino, void, RejectType>(
     "kino/getKinoTop10",
     async (_, {rejectWithValue}) => {
         try{
@@ -41,7 +26,7 @@ export const getKinoTop10 = createAsyncThunk<docsKino, void, {rejectValue: strin
     }
 )
 
-export const getKinoById = createAsyncThunk<IKino, string, {rejectValue: string | null}>(
+export const getKinoById = createAsyncThunk<IKino, string, RejectType>(
     "kino/getKinoById",
     async (id, {rejectWithValue}) => {
         try{
@@ -53,7 +38,7 @@ export const getKinoById = createAsyncThunk<IKino, string, {rejectValue: string 
     }
 )
 
-export const getKinoByGenres = createAsyncThunk<docsKino, KinoProps, {rejectValue: string | null}>(
+export const getKinoByGenres = createAsyncThunk<docsKino, KinoProps, RejectType>(
     "kino/getKinoByGenres",
     async ({type, genres}, {rejectWithValue}) => {
         try{

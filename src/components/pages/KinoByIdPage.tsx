@@ -10,17 +10,17 @@ interface KinoByIdPageProps{
 const KinoByIdPage: FC<KinoByIdPageProps> = ({id}) => {
 
     const dispatch = useAppDispatch()
-    const {kinoByIdEntitie} = useAppSelector(state => state.KinoReducer)
+    const {kinoById} = useAppSelector(state => state.KinoReducer)
 
     useEffect(() => {
-        if(kinoByIdEntitie == null || kinoByIdEntitie.id != id){
+        if(kinoById == null || kinoById.id != id){
             dispatch(getKinoById(id))  
         }
-    }, [kinoByIdEntitie])
+    }, [kinoById])
 
     return (
         <Layout>
-            {kinoByIdEntitie && kinoByIdEntitie.name}
+            {kinoById && kinoById.name}
         </Layout>
     )
 }
