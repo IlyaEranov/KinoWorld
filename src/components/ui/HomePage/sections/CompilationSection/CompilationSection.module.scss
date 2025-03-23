@@ -1,0 +1,30 @@
+@import "../../../../../style/variables";
+
+.more{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    padding-right: 10px;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.more:hover{
+    padding-right: 0px;
+    gap: 18px;
+    color: $color-neutral60;
+}
+
+.arrow{
+    position: relative;
+    top: 2px;
+    width: 48px;
+    height: 48px;
+}
+
+.list{
+    display: flex;
+    gap: 56px;
+    padding-top: 52px;
+}
