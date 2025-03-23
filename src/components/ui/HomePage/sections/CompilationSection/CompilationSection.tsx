@@ -13,7 +13,7 @@ function CompilationSection() {
         <Container offset={1200}>
             <div className={s.content}>
                 <Link to={"/watch/movies"} className={s.more}>
-                    <h1>Подборка лучших фильмов</h1>
+                    <h1>Подборка популярных фильмов</h1>
                     <AiFillCaretRight className={s.arrow} />
                 </Link>
                 <div className={s.list}>

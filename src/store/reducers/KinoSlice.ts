@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { docsKino, IKino, KinoProps, RejectType } from "../../models/IKino";
 import { httpKino } from "../../service/KinoService";
+import { RootState } from "../store";
+import { preloadImage } from "../../utils/preloadImages";
 
 export const searchKino = createAsyncThunk<docsKino, string, RejectType>(
     "kino/searchKino",
@@ -152,3 +154,7 @@ const KinoSlice = createSlice({
 
 export default KinoSlice.reducer
 export const {resetKinoByGenres} = KinoSlice.actions
+
+export const getPreloadedImages = () => (state: RootState) => {
+    return state.KinoReducer.kinoTop10?.docs.map(e => preloadImage(e.backdrop.url))
+}
