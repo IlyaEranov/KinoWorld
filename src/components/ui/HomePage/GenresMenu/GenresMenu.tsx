@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import s from "./GenresMenu.module.scss"
 import { useAppDispatch } from "../../../../hooks/redux"
 import { getKinoByGenres, resetKinoByGenres } from "../../../../store/reducers/KinoSlice"
@@ -45,4 +45,4 @@ function GenresMenu() {
     )
 }
 
-export default GenresMenu
+export default React.memo(GenresMenu)

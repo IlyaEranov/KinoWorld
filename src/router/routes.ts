@@ -1,4 +1,4 @@
-import React, { ComponentType } from "react"
+import React, { ComponentType, useMemo } from "react"
 
 const HomePage = React.lazy(() => import("../components/pages/HomePage"))
 const KinoPage = React.lazy(() => import("../components/HOC/RedirectToWatch"))

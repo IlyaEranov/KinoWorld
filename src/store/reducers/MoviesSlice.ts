@@ -7,7 +7,6 @@ export const getMoviesTop10 = createAsyncThunk<docsKino, void, RejectType>(
     async (_, {rejectWithValue}) => {
         try{
             const response = await httpKino.get(`/movie?type=movie&notNullFields=top250&sortField=top250&sortType=1`)
-            console.log(response.data)
             return response.data
         } catch (e: any){
             return rejectWithValue(`Server Error. ${e["message"]}`)

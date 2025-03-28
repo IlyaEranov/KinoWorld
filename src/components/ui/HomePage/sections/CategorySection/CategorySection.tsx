@@ -6,6 +6,7 @@ import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
 import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"
 import CategoryCard from "../../cards/CategoryCard/CategoryCard"
+import React from "react"
 
 function CategorySection(){
 
@@ -39,4 +40,4 @@ function CategorySection(){
     )
 }
 
-export default CategorySection
+export default React.memo(CategorySection)

@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React, { FC } from "react"
 import s from "./CategoryCard.module.scss"
 import { Link } from "react-router-dom"
 import { kinoUtil } from "../../../../../utils/kinoUtil"
@@ -16,4 +16,4 @@ const CategoryCard: FC<KinoCardProps> = ({image, name, description, type, id}) =
     )
 }
 
-export default CategoryCard
+export default React.memo(CategoryCard)
