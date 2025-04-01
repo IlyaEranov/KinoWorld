@@ -2,7 +2,7 @@ import { useAppSelector } from "../../../../../hooks/redux"
 import Container from "../../../../common/Container/Container"
 import SliderCard from "../../cards/SliderCard/SliderCard"
 import { getTop10WithPreload } from "../../../../../store/reducers/KinoSlice"
-import React, { useCallback, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import Slider from "../../Slider/Slider"
 
 function HeroSection() {
@@ -21,7 +21,7 @@ function HeroSection() {
         }
     }, 10000)
 
-    const selectElement = useCallback((i: number) => {
+    const selectElement = (i: number) => {
         clearTimeout(timeout.current)
         if(i > limit - 1){
             setCurrentSlide(0)
@@ -30,7 +30,7 @@ function HeroSection() {
         } else {
             setCurrentSlide(i)
         }
-    }, [])
+    }
 
     return (
        <Container>

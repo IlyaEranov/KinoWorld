@@ -1,7 +1,7 @@
 import { FaCirclePlay } from "react-icons/fa6"
 import s from "./SliderCard.module.scss"
 import Button from "../../../../common/Buttons/Button/Button"
-import React, { FC } from "react"
+import { FC } from "react"
 import { Link } from "react-router-dom"
 import { kinoUtil } from "../../../../../utils/kinoUtil"
 import { KinoCardProps } from "../../../../../types/KinoCard"
@@ -28,4 +28,4 @@ const SliderCard: FC<KinoCardProps> = ({ id, name, description, image, type}) =>
     )
 }
 
-export default React.memo(SliderCard)
+export default SliderCard
