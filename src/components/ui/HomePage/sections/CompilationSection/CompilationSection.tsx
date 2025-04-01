@@ -4,6 +4,7 @@ import s from "./CompilationSection.module.scss"
 import { AiFillCaretRight } from "react-icons/ai"
 import { useAppSelector } from "../../../../../hooks/redux"
 import CompilationCard from "../../cards/CompilationCard/CompilationCard"
+import React from "react"
 
 function CompilationSection() {
 
@@ -33,4 +34,4 @@ function CompilationSection() {
     )
 }
 
-export default CompilationSection
+export default React.memo(CompilationSection)

@@ -1,4 +1,4 @@
-@import "../../../../../style/variables";
+@import "../../../../style/variables";
 
 .slider_container{
     display: flex;
@@ -33,7 +33,7 @@
     }
 }
 
-.list {
+.indicator_container {
     display: flex;
     gap: 8px;
 }

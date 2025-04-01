@@ -1,45 +1,50 @@
 import { useAppSelector } from "../../../../../hooks/redux"
 import Container from "../../../../common/Container/Container"
-import { useSlider } from "../../../../../hooks/useSlider"
-import KinoSliderCard from "../../cards/SliderCard/SliderCard"
-import s from "./HeroSection.module.scss"
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai"
+import SliderCard from "../../cards/SliderCard/SliderCard"
 import { getTop10WithPreload } from "../../../../../store/reducers/KinoSlice"
-import React from "react"
+import React, { useCallback, useRef, useState } from "react"
+import Slider from "../../Slider/Slider"
 
 function HeroSection() {
 
     const kinoTop10 = useAppSelector(getTop10WithPreload)
     const limit = kinoTop10.docs ? kinoTop10.docs.length : 0
-    const { current, selectElement} = useSlider(limit)
+
+    const timeout = useRef<number>()
+    const [currentSlide, setCurrentSlide] = useState(0)
+
+    timeout.current = setTimeout(() => {
+        if(currentSlide == limit - 1){
+            setCurrentSlide(0)
+        } else {
+            setCurrentSlide(currentSlide + 1)
+        }
+    }, 10000)
+
+    const selectElement = useCallback((i: number) => {
+        clearTimeout(timeout.current)
+        if(i > limit - 1){
+            setCurrentSlide(0)
+        } else if(i < 0) {
+            setCurrentSlide(limit - 1)
+        } else {
+            setCurrentSlide(i)
+        }
+    }, [])
 
     return (
        <Container>
-            {kinoTop10.docs && kinoTop10.preloadedImages &&
-            <>
-                <div className={s.slider_container}>
-                    <AiFillCaretLeft className={`${s.arrow} ${s.left}`} onClick={() => selectElement(current - 1)}/>
-                    <KinoSliderCard 
-                        id={kinoTop10.docs[current].id}
-                        name={kinoTop10.docs[current].name}
-                        description={kinoTop10.docs[current].description}
-                        image={kinoTop10.preloadedImages[current].src}
-                        type={kinoTop10.docs[current].type}
+            <Slider limit={limit} currentSlide={currentSlide} selectElement={selectElement}>
+                {kinoTop10.docs && kinoTop10.preloadedImages && 
+                    <SliderCard
+                        id={kinoTop10.docs[currentSlide].id}
+                        name={kinoTop10.docs[currentSlide].name}
+                        description={kinoTop10.docs[currentSlide].description}
+                        type={kinoTop10.docs[currentSlide].type}
+                        image={kinoTop10.preloadedImages[currentSlide].src}
                     />
-                    <AiFillCaretRight className={`${s.arrow} ${s.right}`} onClick={() => selectElement(current + 1)}/>
-                </div>                
-                <div className={s.list}>
-                    {limit && [...Array(limit)].map((_, i) =>
-                        i == current ?
-                        <div key={i} className={`${s.indicator} ${s.active}`}></div> :
-                        <div 
-                            key={i}
-                            className={s.indicator}
-                            onClick={() => selectElement(i)}
-                        ></div>
-                    )}
-                </div>
-            </>}
+                }
+            </Slider>
        </Container>
     )
 }

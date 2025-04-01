@@ -4,6 +4,13 @@ import { httpKino } from "../../service/KinoService";
 import { RootState } from "../store";
 import { preloadImage } from "../../utils/preloadImages";
 
+const top10Kino = (state: RootState) => state.KinoReducer.kinoTop10
+
+export const getTop10WithPreload = createSelector([top10Kino], kino => {
+    let images = kino?.docs.map(e => preloadImage(e.backdrop.url))
+    return {...kino, preloadedImages: images}
+})
+
 export const searchKino = createAsyncThunk<docsKino, string, RejectType>(
     "kino/searchKino",
     async (name, {rejectWithValue}) => {
@@ -154,17 +161,3 @@ const KinoSlice = createSlice({
 
 export default KinoSlice.reducer
 export const {resetKinoByGenres} = KinoSlice.actions
-
-// export const getTop10WithPreload = () => (state: RootState) => {
-//     if(state.KinoReducer.kinoTop10){
-//         let images = state.KinoReducer.kinoTop10.docs.map(e => preloadImage(e.backdrop.url))
-//         return {...state.KinoReducer.kinoTop10, preloadedImages: images}
-//     }
-// }
-
-const top10Kino = (state: RootState) => state.KinoReducer.kinoTop10
-
-export const getTop10WithPreload = createSelector([top10Kino], kino => {
-    let images = kino?.docs.map(e => preloadImage(e.backdrop.url))
-    return {...kino, preloadedImages: images}
-})

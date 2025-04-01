@@ -30,16 +30,13 @@ function GenresMenu() {
             {genresList.map((e, i) => 
                 e == current 
                 ?
-                <div
-                    key={i}
-                    className={`${s.genres} ${s.active}`}
-                >{e[0].toUpperCase() + e.slice(1)}</div>
+                <div key={i} className={`${s.genres} ${s.active}`}>
+                    {e[0].toUpperCase() + e.slice(1)}
+                </div>
                 :
-                <div
-                    key={i}
-                    className={s.genres}
-                    onClick={() => handlerClick(i)}
-                >{e[0].toUpperCase() + e.slice(1)}</div>
+                <div key={i} className={s.genres} onClick={() => handlerClick(i)}>
+                    {e[0].toUpperCase() + e.slice(1)}
+                </div>
             )}
         </div>
     )
