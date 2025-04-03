@@ -2,9 +2,9 @@ import { FC } from "react";
 import { KinoCardProps } from "../../../../../types/KinoCard";
 import { Link } from "react-router-dom";
 import { kinoUtil } from "../../../../../utils/kinoUtil";
-import s from "./Compilation.module.scss"
+import s from "./KinoCard.module.scss"
 
-const CompilationCard: FC<KinoCardProps> = ({id, name, image, description, type}) => {
+const KinoCard: FC<KinoCardProps> = ({id, name, image, description, type}) => {
     return (
         <Link to={`watch/${kinoUtil.linkType(type)}/${id}`} className={s.card}>
             <img className={s.image} src={image}/>
@@ -16,4 +16,4 @@ const CompilationCard: FC<KinoCardProps> = ({id, name, image, description, type}
     )
 }
 
-export default CompilationCard
+export default KinoCard

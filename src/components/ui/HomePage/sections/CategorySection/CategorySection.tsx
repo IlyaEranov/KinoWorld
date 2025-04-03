@@ -5,8 +5,8 @@ import GenresMenu from "../../GenresMenu/GenresMenu"
 import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
 import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"
-import CategoryCard from "../../cards/CategoryCard/CategoryCard"
 import React from "react"
+import KinoCard from "../../cards/KinoCard/KinoCard"
 
 function CategorySection(){
 
@@ -20,7 +20,7 @@ function CategorySection(){
                 <div className={s.list}>
                     {isSkeletonLoading ? [...Array(10)].map((_, i) => <div key={i} className={s.skeleton}><SkeletonTemplate/></div>) : 
                         kinoByGenres && kinoByGenres.map((e, i) => 
-                            <CategoryCard
+                            <KinoCard
                                 key={i}
                                 id={e.id}
                                 image={e.poster.previewUrl}

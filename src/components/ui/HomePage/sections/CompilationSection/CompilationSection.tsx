@@ -3,8 +3,8 @@ import Container from "../../../../common/Container/Container"
 import s from "./CompilationSection.module.scss"
 import { AiFillCaretRight } from "react-icons/ai"
 import { useAppSelector } from "../../../../../hooks/redux"
-import CompilationCard from "../../cards/CompilationCard/CompilationCard"
 import React from "react"
+import KinoCard from "../../cards/KinoCard/KinoCard"
 
 function CompilationSection() {
 
@@ -19,7 +19,7 @@ function CompilationSection() {
                 </Link>
                 <div className={s.list}>
                     {moviesTop10?.docs.map((e, i) =>
-                        <CompilationCard
+                        <KinoCard
                             key={i}
                             id={e.id}
                             name={e.name}
