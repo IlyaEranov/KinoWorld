@@ -1,8 +1,8 @@
-import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux"
-import { searchKino } from "../../../../../store/reducers/KinoSlice"
-import SearchField from "../../../../common/Fields/SearchField/SearchField"
-import SearchSuggestion from "../../SearchSuggestion/SearchSuggestion"
-import SearchSuggestionSkeleton from "../../SearchSuggestion/SearchSuggestionSkeleton"
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux"
+import { searchKino } from "../../../../store/reducers/KinoSlice"
+import SearchField from "../../../common/Fields/SearchField/SearchField"
+import SearchSuggestion from "../../cards/SearchSuggestion/SearchSuggestion"
+import SearchSuggestionSkeleton from "../../cards/SearchSuggestion/SearchSuggestionSkeleton"
 import s from "./SearchModal.module.scss"
 
 function SearchModal(){
@@ -21,7 +21,7 @@ function SearchModal(){
             <div className={s.content}>
                 {isSkeletonLoading ? [...Array(7)].map((_, i) => <SearchSuggestionSkeleton key={i}/>) : 
                     kinoSearch && kinoSearch.docs.map((e, i) => 
-                        (i < 7 && e.rating.kp != 0) &&
+                        (i < 7 && e.rating.kp != 0 && e.type != "anime" && e.type != "anime-series") &&
                         <SearchSuggestion
                             key={i}
                             id={e.id}

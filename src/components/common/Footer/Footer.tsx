@@ -14,13 +14,8 @@ function Footer(){
                     {linkList.map((e, i) => <li key={i}><Link to={e.path}>{e.value}</Link></li>)}
                 </ul>
             </div>
-            <div className={s.bottom_content}>
+            <div className={s.bottom}>
                 <span>© 2024 КИНОМИР все права защищены</span>
-                <div className={s.links}>
-                    <Link to="https://www.kinopoisk.ru/legal/recommendations/ru/#kinopoisk">Правила и условия</Link>
-                    <div className={s.elipse}></div>
-                    <Link to="https://yandex.ru/legal/kinopoisk_vod">Политика Конфиденциальности</Link>
-                </div>
             </div>
         </footer>
     )

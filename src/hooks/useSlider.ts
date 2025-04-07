@@ -1,17 +1,17 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
 
-export function useSlider(limit: number = 0, time: number = 10000){
-
-    const timeout = useRef<number>()
+export function useSlider(limit: number){
+    
     const [currentSlide, setCurrentSlide] = useState(0)
-
+    const timeout = useRef<number>()
+    
     timeout.current = setTimeout(() => {
         if(currentSlide == limit - 1){
             setCurrentSlide(0)
         } else {
             setCurrentSlide(currentSlide + 1)
         }
-    }, time)
+    }, 10000)
 
     const selectElement = (i: number) => {
         clearTimeout(timeout.current)

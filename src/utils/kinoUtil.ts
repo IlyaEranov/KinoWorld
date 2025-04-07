@@ -20,7 +20,7 @@ export const kinoUtil = {
             return colors.red
         }
     },
-    typeKino: (value: string) => {
+    translate: (value: string) => {
         switch(value){
             case "movie":
                 return "фильм"
@@ -28,24 +28,6 @@ export const kinoUtil = {
                 return "сериал"
             case "carton":
                 return "мультфильм"
-            case "anime":
-                return "аниме"
-            case "anime-series":
-                return "аниме-сериал"
-            default:
-                return ""
-        }
-    },
-    linkType: (value: string) => {
-        switch(value){
-            case "movie":
-                return "movies"
-            case "tv-series":
-                return "series"
-            case "carton":
-            case "anime":
-            case "animated-series":
-                return "animations"
             default:
                 return ""
         }
@@ -57,7 +39,7 @@ export const kinoUtil = {
             case "series":
                 return "Поиск по сериалам"
             case "animations":
-                return "Поиск по аниме и мультфильмам"
+                return "Поиск по мультфильмам"
             default:
                 return ""
         }

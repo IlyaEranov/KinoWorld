@@ -2,6 +2,7 @@ import { FC } from "react"
 import s from "./SearchSuggestion.module.scss"
 import { kinoUtil } from "../../../../utils/kinoUtil"
 import { Link } from "react-router-dom"
+import { generateLinkToWatch } from "../../../../router/routes"
 
 interface SearchSuggestionProps{
     id: string
@@ -14,7 +15,7 @@ interface SearchSuggestionProps{
 
 const SearchSuggestion: FC<SearchSuggestionProps> = ({id, image, name, rating, type, year}) => {
     return(
-        <Link to={`/watch/${kinoUtil.linkType(type)}/${id}`} className={s.card}>
+        <Link to={generateLinkToWatch(type, id)} className={s.card}>
             <img className={s.image} src={image}/>
             <div className={s.description}>
                 <h4>{name}</h4>
@@ -22,7 +23,7 @@ const SearchSuggestion: FC<SearchSuggestionProps> = ({id, image, name, rating, t
                     <span className={s.rating} style={{
                         color: kinoUtil.ratingColor(rating)
                     }}>{rating}</span>
-                    <p>{kinoUtil.typeKino(type)},</p>
+                    <p>{kinoUtil.translate(type)},</p>
                     <p>{year}</p>
                 </div>
             </div>

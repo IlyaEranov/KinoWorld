@@ -1,15 +1,16 @@
 import { Navigate, useParams } from "react-router-dom"
 import KinoByIdPage from "../pages/KinoByIdPage"
 import KinoPage from "../pages/KinoPage"
+import { KinoType } from "../../types/KinoType"
 
 function RedirectToWatch(){
 
-    const {type, id} = useParams()
+    const {type, id} = useParams<{type: KinoType, id: string}>()
 
     return(
         <>{
             (type && id) ? <KinoByIdPage id={id}/> : 
-            (type == "movies" || type == "series" || type == "animations") ?
+            (type == "movie" || type == "tv-series" || type == "carton") ?
             <KinoPage type={type}/> : <Navigate to={"/"}/>
         }</>
     )

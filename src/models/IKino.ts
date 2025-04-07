@@ -21,12 +21,9 @@ export interface docsKino{
     docs: IKino[]
 }
 
-export interface KinoProps{
-    type: string
-    genres?: string[]
-    page?: number
-}
+// export interface KinoProps{
+//     type: string
+//     genres?: string[]
+//     page?: number
+// }
 
-export interface RejectType{
-    rejectValue: string | null
-}

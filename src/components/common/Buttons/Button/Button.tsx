@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react"
 import s from "./Button.module.scss"
 
 interface ButtonProps{
-    type?: string
+    type?: "dark" | "inverted"
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
     children: ReactNode 
 }

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useAppSelector } from "../../../../../hooks/redux"
 import Container from "../../../../common/Container/Container"
-import GenresMenu from "../../GenresMenu/GenresMenu"
+import GenresMenu from "./GenresMenu/GenresMenu"
 import s from "./CategorySection.module.scss"
 import { AiFillCaretDown } from "react-icons/ai"
 import SkeletonTemplate from "../../../../common/SkeletonTemplate/SkeletonTemplate"

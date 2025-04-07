@@ -1,4 +1,4 @@
-import React, { ComponentType, useMemo } from "react"
+import React, { ComponentType } from "react"
 
 const HomePage = React.lazy(() => import("../components/pages/HomePage"))
 const KinoPage = React.lazy(() => import("../components/HOC/RedirectToWatch"))
@@ -22,9 +22,9 @@ export const publicRoutes: RouteType[] = [
 
 export enum pathsLinks{
     Home = "/",
-    Movies = "/watch/movies",
-    Series = "/watch/series",
-    Animations = "/watch/animations"
+    Movies = "/watch/movie",
+    Series = "/watch/tv-series",
+    Animations = "/watch/carton"
 }
 
 interface linkListType{
@@ -38,3 +38,7 @@ export const linkList: linkListType[] = [
     {path: pathsLinks.Series, value: "Сериалы"},
     {path: pathsLinks.Animations, value: "Мультфильмы"}
 ]
+
+export const generateLinkToWatch = (type: string, id?: string) => {
+    return `/watch/${type}` + `/${id}`
+}

@@ -1,12 +1,19 @@
-import { FaCirclePlay } from "react-icons/fa6"
+import { FC } from "react"
 import s from "./SliderCard.module.scss"
 import Button from "../../../../common/Buttons/Button/Button"
-import { FC } from "react"
 import { Link } from "react-router-dom"
-import { kinoUtil } from "../../../../../utils/kinoUtil"
-import { KinoCardProps } from "../../../../../types/KinoCard"
+import { generateLinkToWatch } from "../../../../../router/routes"
+import { FaCirclePlay } from "react-icons/fa6"
 
-const SliderCard: FC<KinoCardProps> = ({ id, name, description, image, type}) => {
+interface SliderCardProps{
+    id: string
+    name: string
+    description: string
+    image?: string | undefined
+    type: string
+}
+
+const SliderCard: FC<SliderCardProps> = ({id, name, description, image, type}) => {
     return (
         <>
             <div className={s.content}>
@@ -15,8 +22,8 @@ const SliderCard: FC<KinoCardProps> = ({ id, name, description, image, type}) =>
                     <p className={s.p}>{description}</p>
                 </div>
                 <div className={s.buttons}>
-                    <Button><span>Смотреть трейлер</span><FaCirclePlay /></Button>
-                    <Link to={`/watch/${kinoUtil.linkType(type)}/${id}`}><Button type="inverted">Детали</Button></Link>
+                    <Button><span>Смотреть трейлер</span><FaCirclePlay/></Button>
+                    <Link to={generateLinkToWatch(type, id)}><Button type="inverted">Детали</Button></Link>
                 </div>
             </div>
             <div className={s.container}>

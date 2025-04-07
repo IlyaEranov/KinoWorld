@@ -16,7 +16,7 @@ const KinoByIdPage: FC<KinoByIdPageProps> = ({id}) => {
         if(kinoById == null || kinoById.id != id){
             dispatch(getKinoById(id))  
         }
-    }, [kinoById])
+    }, [])
 
     return (
         <Layout>
