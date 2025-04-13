@@ -1,22 +1,15 @@
-import { FC } from "react"
+import React, { FC } from "react"
+import { KinoCardProps } from "../../../../types/KinoCard"
 import s from "./SliderCard.module.scss"
-import Button from "../../../../common/Buttons/Button/Button"
+import Button from "../../../common/Buttons/Button/Button"
 import { Link } from "react-router-dom"
-import { generateLinkToWatch } from "../../../../../router/routes"
+import { generateLinkToWatch } from "../../../../router/routes"
 import { FaCirclePlay } from "react-icons/fa6"
 
-interface SliderCardProps{
-    id: string
-    name: string
-    description: string
-    image?: string | undefined
-    type: string
-}
-
-const SliderCard: FC<SliderCardProps> = ({id, name, description, image, type}) => {
-    return (
+const SliderCard: FC<KinoCardProps> = ({id, type, name, description, image, HomePageSlider}) => {
+    return(
         <>
-            <div className={s.content}>
+            <div className={`${s.content} ${HomePageSlider ? s.home : s.default}`}>
                 <div className={s.description}>
                     <h1 className={s.h1}>{name}</h1>
                     <p className={s.p}>{description}</p>
@@ -26,8 +19,8 @@ const SliderCard: FC<SliderCardProps> = ({id, name, description, image, type}) =
                     <Link to={generateLinkToWatch(type, id)}><Button type="inverted">Детали</Button></Link>
                 </div>
             </div>
-            <div className={s.container}>
-                {image && <img className={s.image} src={image}/>}
+            <div className={`${s.image_container} ${HomePageSlider ? s.home : s.default}`}>
+                {image && <img className={`${s.image} ${HomePageSlider ? s.home : s.default}`} src={image}/>}
                 <div className={s.shadow}></div>
                 <div className={s.shadow__border}></div>
             </div>
@@ -35,4 +28,4 @@ const SliderCard: FC<SliderCardProps> = ({id, name, description, image, type}) =
     )
 }
 
-export default SliderCard
+export default React.memo(SliderCard)

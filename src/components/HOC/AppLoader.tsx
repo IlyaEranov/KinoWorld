@@ -15,7 +15,7 @@ const AppLoader: FC<AppLoaderProps> = ({children}) => {
 
     useEffect(() => {
         dispatch(searchKino(""))
-        dispatch(getKinoTop10())
+        dispatch(getKinoTop10(""))
     }, [])
 
     if(isLoading){

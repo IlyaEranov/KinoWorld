@@ -1,6 +1,6 @@
 import Layout from "../common/Layout/Layout"
 import CTA from "../ui/HomePage/sections/CTA/CTA"
-import HeroSection from "../ui/HomePage/sections/HeroSection/HeroSection"
+import HeroSection from "../ui/sections/HeroSection/HeroSection"
 
 function HomePage(){
     return(

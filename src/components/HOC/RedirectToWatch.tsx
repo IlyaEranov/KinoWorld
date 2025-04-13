@@ -10,7 +10,7 @@ function RedirectToWatch(){
     return(
         <>{
             (type && id) ? <KinoByIdPage id={id}/> : 
-            (type == "movie" || type == "tv-series" || type == "carton") ?
+            (type == "movie" || type == "tv-series" || type == "cartoon") ?
             <KinoPage type={type}/> : <Navigate to={"/"}/>
         }</>
     )

@@ -4,6 +4,7 @@ import { RejectType } from "../../types/RejectType";
 import { httpKino } from "../../service/KinoService";
 import { RootState } from "../store";
 import { preloadImage } from "../../utils/preloadImages";
+import { KinoType } from "../../types/KinoType";
 
 export interface KinoState{
     isLoading: boolean
@@ -103,11 +104,11 @@ export const searchKino = createAsyncThunk<docsKino, string, RejectType>(
     }
 )
 
-export const getKinoTop10 = createAsyncThunk<docsKino, void, RejectType>(
+export const getKinoTop10 = createAsyncThunk<docsKino, KinoType, RejectType>(
     "kino/getKinoTop10",
-    async (_, {rejectWithValue}) => {
+    async (type, {rejectWithValue}) => {
         try{
-            const response = await httpKino.get(`/movie?limit=5&notNullFields=top10&notNullFields=backdrop.url`)
+            const response = await httpKino.get(`/movie?limit=5&type=${type}&notNullFields=top10&notNullFields=backdrop.url`)
             return response.data
         } catch (e: any){
             return rejectWithValue(`Server Error. ${e["message"]}`)
@@ -115,11 +116,11 @@ export const getKinoTop10 = createAsyncThunk<docsKino, void, RejectType>(
     }
 )
 
-const selectTop10Kino = (state: RootState) => state.KinoReducer.kinoTop10
+const selectKinoTop10 = (state: RootState) => state.KinoReducer.kinoTop10
 
-export const selectTop10WithPreload = createSelector([selectTop10Kino], kino => {
+export const selectKinoTop10WithPreload = createSelector([selectKinoTop10], kino => {
     let preloadedImages = kino?.docs.map(e => preloadImage(e.backdrop.url))
     return {...kino, preloadedImages}
 })
 
-export type KinoTop10Type = ReturnType<typeof selectTop10WithPreload>
+export type kinoTop10WithPreloadType = ReturnType<typeof selectKinoTop10WithPreload>

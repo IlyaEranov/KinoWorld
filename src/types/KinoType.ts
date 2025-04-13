@@ -1,1 +1,1 @@
-export type KinoType = "movie" | "tv-series" | "carton" | ""
+export type KinoType = "movie" | "tv-series" | "cartoon" | ""

@@ -4,4 +4,5 @@ export interface KinoCardProps{
     description: string
     image?: string | undefined
     type: string
+    HomePageSlider?: boolean
 }

@@ -1,19 +1,26 @@
-@import "../../../../../style/variables";
+@import "../../../../style/variables";
 
 .content {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    max-width: 600px;
     position: relative;
     z-index: 1;
+    &.home{
+        gap: 32px;
+        max-width: 600px;
+    }
+    &.default{
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
 }
 
 .description {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    min-height: 300px;
+    max-width: 880px;
 }
 
 .h1 {
@@ -33,18 +40,26 @@
     gap: 24px;
 }
 
-.container {
+.image_container {
     position: absolute;
     top: 0;
-    right: 0;
-    margin: 120px 100px 0 0;
     z-index: 0;
-
+    margin: 0 auto;
+    &.home{
+        right: 0;
+        margin: 120px 100px 0 0;
+    }
 }
 
 .image {
-    max-width: 1200px;
-    opacity: 0.8;
+    &.home{
+        max-width: 1200px;
+        opacity: 0.8;
+    }
+    &.default{
+        max-width: 1500px;
+        opacity: 0.4;
+    }
 }
 
 .shadow {
@@ -54,6 +69,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
 
 .shadow__border {
@@ -63,4 +79,5 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
 }

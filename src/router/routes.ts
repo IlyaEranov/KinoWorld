@@ -3,7 +3,7 @@ import React, { ComponentType } from "react"
 const HomePage = React.lazy(() => import("../components/pages/HomePage"))
 const KinoPage = React.lazy(() => import("../components/HOC/RedirectToWatch"))
 
-enum RoutesNames{
+export enum RoutesNames{
     Home = "/",
     Watch = "/watch/:type?/:id?",
     Auth = "/auth/:type?"
@@ -24,7 +24,7 @@ export enum pathsLinks{
     Home = "/",
     Movies = "/watch/movie",
     Series = "/watch/tv-series",
-    Animations = "/watch/carton"
+    Animations = "/watch/cartoon"
 }
 
 interface linkListType{
