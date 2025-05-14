@@ -1,0 +1,39 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../assets/fonts/Inter-Regular.woff2') format('woff2'),
+        url('../assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/Inter-Medium.woff2') format('woff2'),
+        url('../assets/fonts/Inter-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/Inter-Bold.woff2') format('woff2'),
+        url('../assets/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+$color-neutral100: #101010;
+$color-neutral90: #242323;
+$color-neutral80: #383838;
+$color-neutral70: #606060;
+$color-neutral60: #878787;
+$color-neutral50: #C2C2C2;
+$color-neutral40: #D6D6D6;
+$color-neutral30: #EDEDED;
+
+$color-main: #F14141;
+$color-hover: #b32e2e;
+$color-focus: #802A2A;

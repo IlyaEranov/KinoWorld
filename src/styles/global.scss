@@ -1,0 +1,47 @@
+@use "./variables" as v;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    background-color: v.$color-neutral100;
+    font-family: "Inter";
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 48px;
+    color: #fff;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #fff;
+}
+
+h4{
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+}
+
+p{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+ul,
+li,
+button,
+input{
+    all: unset
+}
