@@ -1,18 +1,3 @@
-// header {
-//     height: 72px;
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-// }
-
-// .header__wrapper{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 40px;
-// }
-
 header{
     height: 72px;
     display: flex;
@@ -26,9 +11,14 @@ header{
 }
 
 .header__buttons{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
+    gap: 16px;
+}
+
+.header__buttons_hidden{
+    display: none;
 }
 
 @media (min-width: 1024px){
@@ -36,9 +26,8 @@ header{
         height: 120px;
         padding: 0 40px;
     }
-    .header__buttons{
+    .header__buttons_hidden{
         display: flex;
-        gap: 16px;
     }
 }
 

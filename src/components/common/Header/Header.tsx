@@ -14,24 +14,23 @@ function Header() {
             <Link to={"/"} className={s.header__logo}>
                 <h2 className={s.logo}>КИНОМИР</h2>
             </Link>
-            <NavBar />
-            {isAuth ? 
-                <div className={s.header__buttons}>
-                    <SearchBar/>
+            <NavBar/>
+            <div className={s.header__buttons}>
+                <SearchBar/>
+                {isAuth ?
                     <Button>Профиль</Button>
-                </div>
-                :
-                <div className={s.header__buttons}>
-                    <SearchBar/>
-                    <Link to={"/auth/login"} className={s.header__link}>
-                        <Button>Войти</Button>
-                    </Link>
-                    <Link to={"/auth/register"} className={s.header__link}>
-                        <Button style={"inverted"}>Регестрация</Button>
-                    </Link>
-                </div>
-            }
-            <SideBar />
+                    :
+                    <>
+                        <Link to={"/auth/login"} className={`${s.header__buttons_hidden}`}>
+                            <Button>Войти</Button>
+                        </Link>
+                        <Link to={"/auth/register"} className={`${s.header__buttons_hidden}`}>
+                            <Button style={"inverted"}>Регестрация</Button>
+                        </Link>
+                    </>
+                }
+                <SideBar/>
+            </div>
         </header>
     )
 }
