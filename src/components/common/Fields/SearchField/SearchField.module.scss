@@ -1,0 +1,38 @@
+@use "../../../../styles/variables" as v;
+
+.search{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    
+    padding: 24px 16px; 
+    margin: 20px;
+    
+    border: 1px solid v.$color-neutral60;
+    border-radius: 6px;
+    
+    cursor: text;
+    transition: 0.4s;
+}
+
+.search__icon{
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(59%) sepia(10%) saturate(16%) hue-rotate(352deg) brightness(88%) contrast(86%);
+}
+
+.search__field{
+    width: 600px;
+    font-size: 18px;
+    transition: 0.4s;
+    caret-color: #fff;
+    color: #fff;
+}
+
+.search:hover{
+    border-color: v.$color-neutral40;
+}
+
+.search:active{
+    border-color: v.$color-neutral40;
+}

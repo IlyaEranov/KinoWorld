@@ -1,0 +1,51 @@
+@use "../../../../styles/variables" as v;
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    line-height: 24px;
+
+    background-color: v.$color-main;
+    border: 1px solid v.$color-main;
+    
+    transition: 0.4s;
+
+    &.inverted{
+        background-color: v.$color-neutral100;
+    }
+    &.inverted:hover{
+        background-color: v.$color-neutral100;
+    }
+    &.dark{
+        background-color: v.$color-neutral90; 
+        border: 1px solid v.$color-neutral80;
+    }
+    &.dark:hover{
+        background-color: v.$color-neutral80;
+        border: 1px solid v.$color-neutral80;
+    }
+}
+
+.button:hover{
+    background-color: v.$color-hover;
+    border-color: v.$color-hover;
+}
+
+@media (min-width: 1024px){
+    .button{
+        border-radius: 4px;
+        padding: 7px 11px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1440px){
+    .button{
+        border-radius: 6px;
+        padding: 15px 23px;
+        font-size: 16px;
+    }
+}

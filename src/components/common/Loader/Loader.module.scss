@@ -1,0 +1,48 @@
+@use "../../../styles/variables" as v;
+
+.loader{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: v.$color-neutral100;
+    gap: 16px;
+}
+
+.loader__item{
+    width: 16px;
+    height: 16px;
+    background-color: v.$color-main;
+    border-radius: 20px;
+    animation: bounce 2s infinite;
+    &._1{
+        animation-delay: -.1s;
+    }
+    &._2{
+        animation-delay: -.3s;
+    }
+    &._3{
+        animation-delay: -.5s;
+    }
+}
+
+@keyframes bounce{
+    0% {
+        transform: translateY(-50%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+    100% {
+        transform: translateY(-50%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+}

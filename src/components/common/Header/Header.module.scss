@@ -1,0 +1,53 @@
+// header {
+//     height: 72px;
+
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .header__wrapper{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 40px;
+// }
+
+header{
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px;
+}
+
+.logo{
+    font-size: 24px;
+}
+
+.header__buttons{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px){
+    header{
+        height: 120px;
+        padding: 0 40px;
+    }
+    .header__buttons{
+        display: flex;
+        gap: 16px;
+    }
+}
+
+
+@media (min-width: 1440px){
+    header{
+        padding: 0 120px;
+    }
+    .logo{
+        font-size: 32px;
+    }
+}

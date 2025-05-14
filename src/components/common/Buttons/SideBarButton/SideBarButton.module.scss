@@ -1,0 +1,25 @@
+@use "../../../../styles/variables" as v;
+
+.menu__button{
+    line-height: 0px;
+    border: 1px solid v.$color-neutral80;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.menu__icon{
+    width: 20px;
+    height: 20px;
+}
+
+.menu__button:active{
+    border-color: v.$color-neutral70;
+}
+
+@media (min-width: 1024px) {
+    .menu__button{
+        display: none;
+    }
+}

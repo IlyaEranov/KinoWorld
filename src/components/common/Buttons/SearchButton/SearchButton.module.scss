@@ -1,0 +1,38 @@
+@use "../../../../styles/variables" as v;
+
+.search__button {
+    line-height: 0px;
+
+    border: 1px solid v.$color-neutral80;
+    border-radius: 8px;
+
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.search__button:hover {
+    border-color: v.$color-neutral70;
+}
+
+@media (min-width: 1024px){
+    .search__button{
+        padding: 12px;
+    }
+
+    .search__icon{
+        height: 14px;
+        width: 14px;
+    }
+}
+
+@media (min-width: 1440px){
+    .search__button{
+        padding: 16px;
+    }
+
+    .search__icon{
+        height: 24px;
+        width: 24px;
+    }
+}
+
