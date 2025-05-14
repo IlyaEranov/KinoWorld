@@ -1,0 +1,48 @@
+@use "../../../../styles/variables" as v;
+
+.search-card{
+    display: flex;
+
+    padding: 10px 20px;
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.search-card:hover{
+    background-color: v.$color-neutral80;
+}
+
+.search-card__image{
+    height: 72px;
+    width: 48px;
+    border-radius: 4px;
+}
+
+.search-card__content{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 4px;
+}
+
+.search-card__description{
+    display: flex;
+    gap: 8px;
+}
+
+.search-card__rating{
+    font-weight: 600;
+}
+
+.head{
+    width: 160px;
+    height: 18px;
+    border-radius: 6px;
+}
+
+.body{
+    width: 180px;
+    height: 20px;
+    border-radius: 6px;
+}
