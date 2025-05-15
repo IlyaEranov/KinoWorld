@@ -14,9 +14,6 @@ const Modal: FC<ModalProps> = ({children, onClose, active}) => {
             <div className={s.modal} onClick={(e) => e.stopPropagation()}>
                 {children}
             </div>
-            <button className={s.modal__button} onClick={onClose}>
-                <img className={s.close__icon} src={close} alt="Закрыть"/>
-            </button>
         </div>
     )
 }

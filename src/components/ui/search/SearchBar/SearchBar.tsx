@@ -9,6 +9,7 @@ import { searchKino } from "../../../../store/reducers/KinoSlice";
 import SearchCard from "../SearchCard/SearchCard";
 import SearchCardSkeleton from "../SearchCard/SearchCardSkeleton";
 import React, { useEffect } from "react";
+import CloseButton from "../../../common/Buttons/CloseButton/CloseButton";
 
 function SearchBar() {
 
@@ -35,21 +36,24 @@ function SearchBar() {
         <>
             <SearchButton onOpen={openModal} />
             <Modal active={isActive} onClose={closeModal}>
-                <SearchField
-                    placeholder="Поиск по фильмам, сериалам и мультфильмам"
-                    onChange={handlerSearch}
-                />
+                <div className={s.search__wrapper}>
+                    <SearchField
+                        placeholder="Поиск кино"
+                        onChange={handlerSearch}
+                    />
+                    <CloseButton onClose={closeModal}/>
+                </div>
                 <div className={s.search__suggestion}>
                     {isSkeletonLoading ?
                         [...Array(limit)].map((_, i) =>
-                        <SearchCardSkeleton key={`sekeleton_${i}`} />)
-                        : 
+                            <SearchCardSkeleton key={`sekeleton_${i}`} />)
+                        :
                         kinoSearch && kinoSearch.docs.map((e, i) =>
                             (i < limit
                                 && e.rating.kp != 0
                                 && e.type != "anime"
                                 && e.type != "anime-series"
-                            ) 
+                            )
                             &&
                             <SearchCard
                                 key={`${e.name}_${e.id}`}

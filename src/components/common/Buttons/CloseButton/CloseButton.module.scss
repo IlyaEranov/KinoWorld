@@ -1,0 +1,33 @@
+@use "../../../../styles/variables" as v;
+
+.close-button{
+    background-color: v.$color-neutral90;
+    padding: 10px;
+
+    border: 1px solid v.$color-neutral60;
+    border-radius: 8px;
+    line-height: 0px;
+
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.close-button:hover{
+    border-color: v.$color-neutral40;
+}
+
+.close-button__icon{
+    height: 19px;
+    width: 19px;   
+    line-height: 0px;
+}
+
+@media (min-width: 768px){
+    .close-button{
+        padding: 16px;
+    }
+    .close-button__icon{
+        width: 24px;
+        height: 24px;
+    }
+}

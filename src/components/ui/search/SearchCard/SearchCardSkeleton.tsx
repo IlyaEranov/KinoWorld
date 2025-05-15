@@ -7,7 +7,7 @@ function SearchCardSkeleton() {
             <div className={s["search-card__image"]}>
                 <Skeleton/>
             </div>
-            <div className={s["search__content"]}>
+            <div className={s["search-card__content"]}>
                 <div className={s.head}>
                     <Skeleton/>
                 </div>

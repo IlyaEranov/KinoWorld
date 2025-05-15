@@ -1,48 +1,68 @@
 @use "../../../../styles/variables" as v;
 
-.search-card{
+.search-card {
     display: flex;
 
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
 
     transition: 0.4s;
 }
 
-.search-card:hover{
+.search-card:hover {
     background-color: v.$color-neutral80;
 }
 
-.search-card__image{
-    height: 72px;
-    width: 48px;
+.search-card__image {
+    height: 64px;
+    width: 42px;
     border-radius: 4px;
 }
 
-.search-card__content{
+.search-card__content {
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 4px;
 }
 
-.search-card__description{
+.search-card__description {
     display: flex;
     gap: 8px;
 }
 
-.search-card__rating{
+.search-card__item {
     font-weight: 600;
+    font-size: 14px;
 }
 
-.head{
+.search-card__title{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.head {
     width: 160px;
     height: 18px;
     border-radius: 6px;
 }
 
-.body{
+.body {
     width: 180px;
     height: 20px;
     border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+    .search-card {
+        padding: 10px 20px;
+    }
+
+    .search-card__image {
+        height: 72px;
+        width: 48px;
+    }
+    .search-card__item{
+        font-size: 18px;
+    }
 }

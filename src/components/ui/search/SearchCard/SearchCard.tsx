@@ -17,17 +17,17 @@ const SearchCard: FC<SearchCardProps> = ({id, type, name, image, rating, year}) 
         <Link className={s["search-card"]} to={`/watch/${type}/${id}`}>
             <img className={s["search-card__image"]} src={image} alt={name} />
             <div className={s["search-card__content"]}>
-                <h4>{name}</h4>
+                <h4 className={s["search-card__title"]}>{name}</h4>
                 <div className={s["search-card__description"]}>
-                    <span className={s["search-card__rating"]}
+                    <span className={s["search-card__item"]}
                         style={{
                             color: kinoUtil.ratingColor(rating)
                         }}
                     >
                         {rating}
                     </span>
-                    <p>{kinoUtil.ru(type)}</p>
-                    <p>{year}</p>
+                    <p className={s["search-card__item"]}>{kinoUtil.ru(type)}</p>
+                    <p className={s["search-card__item"]}>{year}</p>
                 </div>
             </div>
         </Link>

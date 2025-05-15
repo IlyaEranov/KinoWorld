@@ -19,19 +19,20 @@ function SideBar() {
                     {navLinks.map(e =>
                         <li key={e.name} className={s.sidebar__item}>
                             <Link
+                                className={s.sidebar__link}
                                 to={e.path}
                             >{e.name}</Link>
                         </li>
                     )}
                     {isAuth ?
                         <li key={"Профиль"} className={s.sidebar__item}>
-                            <Link to={"/"}>
+                            <Link to={"/"} className={s.sidebar__link}>
                                 Профиль
                             </Link>
                         </li>
                         :
                         <li key={"Войти"} className={s.sidebar__item}>
-                            <Link to={"/auth/login"}>
+                            <Link to={"/auth/login"} className={s.sidebar__link}>
                                 Войти
                             </Link>
                         </li>

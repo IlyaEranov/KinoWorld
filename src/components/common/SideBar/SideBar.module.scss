@@ -32,3 +32,8 @@
 .sidebar__item:active, .sidebar__item:hover{
     background-color: v.$color-neutral90;
 }
+
+.sidebar__link{
+    font-size: 14px;
+    line-height: 16px;
+}

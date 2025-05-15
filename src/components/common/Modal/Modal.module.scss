@@ -31,7 +31,6 @@
 
 .modal{
     max-width: 1000px;
-    margin-top: 20px;
     border: 1px solid v.$color-neutral80;
     border-radius: 8px;
 
@@ -45,23 +44,15 @@
     flex-direction: column;
 }
 
-.modal__button{
-    background-color: v.$color-neutral90;
-    margin-top: 20px;
-    padding: 16px;
 
-    border: 1px solid v.$color-neutral80;
-    border-radius: 8px;
-    line-height: 0px;
-
-    transition: 0.4s;
+@media (min-width: 375px) {
+    .modal{
+        margin-top: 10px;
+    }
 }
 
-.modal__button:hover{
-    border-color: v.$color-neutral70;
-}
-
-.close__icon{
-    height: 24px;
-    width: 24px;   
+@media (min-width: 1024px) {
+    .modal{
+        margin-top: 20px;
+    }
 }
